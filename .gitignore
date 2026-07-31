@@ -5,3 +5,6 @@ node_modules/
 __pycache__/
 *.pyc
 .venv/
+.idea/
+
+implementation_plan.md
