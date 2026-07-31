@@ -1,0 +1,151 @@
+{
+  "run_at_utc": "20260730T123928Z",
+  "document": "[Slide] d1-slide-hackathon",
+  "refs": [
+    "Trang 1",
+    "Trang 2",
+    "Trang 3",
+    "Trang 4",
+    "Trang 5",
+    "Trang 6",
+    "Trang 7",
+    "Trang 8",
+    "Trang 9",
+    "Trang 10"
+  ],
+  "model": "openai/gpt-4o-mini",
+  "path": "happy",
+  "status": "ok",
+  "reason": "",
+  "n_questions": 5,
+  "pass_rate": 1.0,
+  "context_chars": 4380,
+  "usage": {
+    "prompt_tokens": 2077,
+    "completion_tokens": 707,
+    "total_tokens": 2784,
+    "cost": 0.00073575,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00073575,
+      "upstream_inference_prompt_cost": 0.00031155,
+      "upstream_inference_completions_cost": 0.0004242
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "note": "",
+  "questions": [
+    {
+      "question": "LLM là gì trong bối cảnh AI?",
+      "options": [
+        "Một mô hình ngôn ngữ rất lớn",
+        "Một loại chatbot",
+        "Một thuật toán học máy",
+        "Một hệ thống chuyên gia"
+      ],
+      "answer_index": 0,
+      "explanation": "LLM là một mô hình ngôn ngữ rất lớn, thường dựa trên kiến trúc Transformer.",
+      "citation_ref": "Trang 10",
+      "evidence_quote": "LLM (Large Language Model) là một mô hình ngôn ngữ rất lớn, thường dựa trên kiến trúc Transformer.",
+      "verification": {
+        "citation_in_scope": true,
+        "evidence_match": "exact",
+        "overlap": 1.0,
+        "options_valid": true,
+        "notes": []
+      }
+    },
+    {
+      "question": "Điều gì làm cho Transformer trở thành bước ngoặt trong AI?",
+      "options": [
+        "Nó cho phép mô hình hiểu ngôn ngữ linh hoạt hơn",
+        "Nó là một hệ chuyên gia",
+        "Nó sử dụng dữ liệu lớn hơn",
+        "Nó chỉ làm việc với văn bản"
+      ],
+      "answer_index": 0,
+      "explanation": "Transformer cho phép mô hình hiểu ngôn ngữ theo cách linh hoạt hơn, mỗi từ có thể nhìn sang những từ quan trọng khác.",
+      "citation_ref": "Trang 8",
+      "evidence_quote": "Transformer là bước ngoặt vì nó cho mô hình hiểu ngôn ngữ theo cách linh hoạt hơn.",
+      "verification": {
+        "citation_in_scope": true,
+        "evidence_match": "exact",
+        "overlap": 1.0,
+        "options_valid": true,
+        "notes": []
+      }
+    },
+    {
+      "question": "Generative AI có khả năng gì?",
+      "options": [
+        "Sinh ra nội dung mới",
+        "Phân loại dữ liệu",
+        "Dự đoán kết quả",
+        "Nhận diện ảnh"
+      ],
+      "answer_index": 0,
+      "explanation": "Generative AI có khả năng sinh ra nội dung mới như văn bản, ảnh, code.",
+      "citation_ref": "Trang 4",
+      "evidence_quote": "Generative AI — sinh nội dung mới: văn bản, ảnh, code.",
+      "verification": {
+        "citation_in_scope": true,
+        "evidence_match": "partial",
+        "overlap": 1.0,
+        "options_valid": true,
+        "notes": [
+          "Dẫn chứng khớp một phần (100%), không phải nguyên văn."
+        ]
+      }
+    },
+    {
+      "question": "AI được chia thành mấy nhóm chính theo chức năng?",
+      "options": [
+        "Ba nhóm",
+        "Hai nhóm",
+        "Bốn nhóm",
+        "Năm nhóm"
+      ],
+      "answer_index": 0,
+      "explanation": "AI được chia thành ba nhóm chính: phân loại, sinh nội dung và hành động.",
+      "citation_ref": "Trang 4",
+      "evidence_quote": "Ba nhóm AI chính: phân loại · sinh nội dung · hành động.",
+      "verification": {
+        "citation_in_scope": true,
+        "evidence_match": "exact",
+        "overlap": 1.0,
+        "options_valid": true,
+        "notes": []
+      }
+    },
+    {
+      "question": "Bài học từ sự ra đời của ImageNet là gì?",
+      "options": [
+        "Dữ liệu tốt hơn có thể đánh bại thuật toán khôn hơn",
+        "Thuật toán luôn quan trọng hơn dữ liệu",
+        "Cần phải có nhiều mô hình khác nhau",
+        "Chỉ cần một mô hình là đủ"
+      ],
+      "answer_index": 0,
+      "explanation": "Bài học từ ImageNet là đôi khi dữ liệu tốt hơn đánh bại thuật toán khôn hơn.",
+      "citation_ref": "Trang 7",
+      "evidence_quote": "Đôi khi dữ liệu tốt hơn đánh bại thuật toán khôn hơn.",
+      "verification": {
+        "citation_in_scope": true,
+        "evidence_match": "exact",
+        "overlap": 1.0,
+        "options_valid": true,
+        "notes": []
+      }
+    }
+  ]
+}

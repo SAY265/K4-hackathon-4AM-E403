@@ -1,0 +1,268 @@
+{
+  "run_at_utc": "20260730T103651Z",
+  "document": "[Slide] d1-slide-hackathon",
+  "refs": [
+    "Trang 1",
+    "Trang 2",
+    "Trang 3",
+    "Trang 4",
+    "Trang 5",
+    "Trang 6",
+    "Trang 7",
+    "Trang 8",
+    "Trang 9",
+    "Trang 10",
+    "Trang 11",
+    "Trang 12",
+    "Trang 13",
+    "Trang 14",
+    "Trang 15",
+    "Trang 16",
+    "Trang 17",
+    "Trang 18",
+    "Trang 19",
+    "Trang 20",
+    "Trang 21",
+    "Trang 22",
+    "Trang 23",
+    "Trang 24",
+    "Trang 25",
+    "Trang 26",
+    "Trang 27",
+    "Trang 28",
+    "Trang 29"
+  ],
+  "model": "openai/gpt-4o-mini",
+  "path": "happy",
+  "status": "ok",
+  "reason": "",
+  "n_questions": 10,
+  "pass_rate": 1.0,
+  "context_chars": 16945,
+  "usage": {
+    "prompt_tokens": 6547,
+    "completion_tokens": 1459,
+    "total_tokens": 8006,
+    "cost": 0.00137745,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 6400,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00137745,
+      "upstream_inference_prompt_cost": 0.00050205,
+      "upstream_inference_completions_cost": 0.0008754
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "note": "",
+  "questions": [
+    {
+      "question": "AI được định nghĩa như thế nào trong tài liệu?",
+      "options": [
+        "Là một hệ thống có yếu tố thông minh.",
+        "Là một hệ thống chỉ có khả năng học từ dữ liệu.",
+        "Là một hệ thống chỉ nhận diện ảnh.",
+        "Là một hệ thống chỉ sinh nội dung mới."
+      ],
+      "answer_index": 0,
+      "explanation": "AI được định nghĩa là 'chiếc ô lớn nhất: mọi hệ thống có yếu tố “thông minhˮ.'",
+      "citation_ref": "Trang 3",
+      "evidence_quote": "AI — chiếc ô lớn nhất: mọi hệ thống có yếu tố “thông minhˮ.",
+      "verification": {
+        "citation_in_scope": true,
+        "evidence_match": "exact",
+        "overlap": 1.0,
+        "options_valid": true,
+        "notes": []
+      }
+    },
+    {
+      "question": "Mô hình nào được coi là nền tảng cho LLM?",
+      "options": [
+        "Hệ chuyên gia.",
+        "Mạng nơ-ron nhiều tầng.",
+        "Transformer.",
+        "Generative AI."
+      ],
+      "answer_index": 2,
+      "explanation": "Transformer được coi là bước ngoặt vì nó cho mô hình hiểu ngôn ngữ theo cách linh hoạt hơn.",
+      "citation_ref": "Trang 8",
+      "evidence_quote": "Transformer là bước ngoặt vì nó cho mô hình hiểu ngôn ngữ theo cách linh hoạt hơn.",
+      "verification": {
+        "citation_in_scope": true,
+        "evidence_match": "exact",
+        "overlap": 1.0,
+        "options_valid": true,
+        "notes": []
+      }
+    },
+    {
+      "question": "LLM là gì?",
+      "options": [
+        "Một mô hình ngôn ngữ rất lớn.",
+        "Một loại chatbot.",
+        "Một hệ thống nhận diện ảnh.",
+        "Một bộ dữ liệu lớn."
+      ],
+      "answer_index": 0,
+      "explanation": "LLM (Large Language Model) là một mô hình ngôn ngữ rất lớn, thường dựa trên kiến trúc Transformer.",
+      "citation_ref": "Trang 10",
+      "evidence_quote": "LLM (Large Language Model) là một mô hình ngôn ngữ rất lớn, thường dựa trên kiến trúc Transformer.",
+      "verification": {
+        "citation_in_scope": true,
+        "evidence_match": "exact",
+        "overlap": 1.0,
+        "options_valid": true,
+        "notes": []
+      }
+    },
+    {
+      "question": "Mô hình nào không phải là một dạng của Generative AI?",
+      "options": [
+        "ChatGPT.",
+        "Claude.",
+        "Hệ chuyên gia.",
+        "Midjourney."
+      ],
+      "answer_index": 2,
+      "explanation": "Hệ chuyên gia không phải là một dạng của Generative AI, mà là một hệ thống giải quyết bài toán chuyên môn hẹp.",
+      "citation_ref": "Trang 6",
+      "evidence_quote": "Đặt lại vấn đề: 'Nếu AI chỉ giải thật tốt một loại bài toán chuyên môn hẹp thì sao?' → Sự ra đời của expert systems.",
+      "verification": {
+        "citation_in_scope": true,
+        "evidence_match": "exact",
+        "overlap": 1.0,
+        "options_valid": true,
+        "notes": []
+      }
+    },
+    {
+      "question": "Điều gì xảy ra khi context của model quá dài?",
+      "options": [
+        "Model sẽ xử lý tốt hơn.",
+        "Model có thể 'quên' thông tin ở giữa.",
+        "Model sẽ không hoạt động.",
+        "Model sẽ trả lời nhanh hơn."
+      ],
+      "answer_index": 1,
+      "explanation": "Khi context quá dài, model có thể 'quên' thông tin ở giữa, dẫn đến việc bỏ sót thông tin quan trọng.",
+      "citation_ref": "Trang 14",
+      "evidence_quote": "Bàn đầy quá thì đồ ở giữa bàn dễ bị bỏ sót — đặt điều quan trọng ở giữa một prompt rất dài, model có thể 'quên' mất.",
+      "verification": {
+        "citation_in_scope": true,
+        "evidence_match": "exact",
+        "overlap": 1.0,
+        "options_valid": true,
+        "notes": []
+      }
+    },
+    {
+      "question": "Mô hình nào được coi là 'bác sĩ đa năng'?",
+      "options": [
+        "GPT-3.",
+        "Kimi K3.",
+        "Claude.",
+        "Transformer."
+      ],
+      "answer_index": 0,
+      "explanation": "GPT-3 được mô tả như một 'bác sĩ đa năng' với khả năng xử lý nhiều loại tác vụ khác nhau.",
+      "citation_ref": "Trang 17",
+      "evidence_quote": "GPT-3 175 tỷ một 'bác sĩ đa năng' — mọi token đều đi qua toàn bộ khớp nối.",
+      "verification": {
+        "citation_in_scope": true,
+        "evidence_match": "exact",
+        "overlap": 1.0,
+        "options_valid": true,
+        "notes": []
+      }
+    },
+    {
+      "question": "Chain-of-Thought là gì trong ngữ cảnh của LLM?",
+      "options": [
+        "Một phương pháp để model suy luận từng bước.",
+        "Một loại mô hình mới.",
+        "Một cách để tăng tốc độ xử lý.",
+        "Một kỹ thuật để giảm chi phí."
+      ],
+      "answer_index": 0,
+      "explanation": "Chain-of-Thought là phương pháp cho phép model suy luận từng bước, giúp cải thiện độ chính xác.",
+      "citation_ref": "Trang 22",
+      "evidence_quote": "Chỉ thêm 'giấy nháp', từ sai thành đúng.",
+      "verification": {
+        "citation_in_scope": true,
+        "evidence_match": "exact",
+        "overlap": 1.0,
+        "options_valid": true,
+        "notes": []
+      }
+    },
+    {
+      "question": "Điều gì là cần thiết để model có thể 'nghe lời' trong quá trình huấn luyện?",
+      "options": [
+        "Phản hồi từ con người.",
+        "Dữ liệu lớn.",
+        "Nhiều tham số.",
+        "Kiến trúc phức tạp."
+      ],
+      "answer_index": 0,
+      "explanation": "Model cần phản hồi từ con người để học cách trả lời và trở thành trợ lý hữu ích.",
+      "citation_ref": "Trang 19",
+      "evidence_quote": "Cỗ máy đoán token + điểm xếp hạng của con người → trợ lý helpful · harmless · honest.",
+      "verification": {
+        "citation_in_scope": true,
+        "evidence_match": "exact",
+        "overlap": 1.0,
+        "options_valid": true,
+        "notes": []
+      }
+    },
+    {
+      "question": "Mô hình nào được mô tả là 'bệnh viện đa khoa'?",
+      "options": [
+        "GPT-3.",
+        "Kimi K3.",
+        "Claude.",
+        "Transformer."
+      ],
+      "answer_index": 1,
+      "explanation": "Kimi K3 được mô tả là 'bệnh viện đa khoa' với khả năng gọi nhiều chuyên gia cho từng token.",
+      "citation_ref": "Trang 17",
+      "evidence_quote": "2026  Kimi K3 2.800 tỷ một 'bệnh viện đa khoa' — mỗi token chỉ gọi vài chuyên gia.",
+      "verification": {
+        "citation_in_scope": true,
+        "evidence_match": "exact",
+        "overlap": 1.0,
+        "options_valid": true,
+        "notes": []
+      }
+    },
+    {
+      "question": "Một trong những yếu tố quan trọng trong việc chọn model là gì?",
+      "options": [
+        "Chọn theo tên model.",
+        "Chọn theo tầng model.",
+        "Chọn theo giá cả.",
+        "Chọn theo độ phức tạp của model."
+      ],
+      "answer_index": 1,
+      "explanation": "Việc chọn model nên dựa trên tầng model, không chỉ dựa vào tên gọi của nó.",
+      "citation_ref": "Trang 26",
+      "evidence_quote": "Chọn model theo TẦNG, không chọn theo tên.",
+      "verification": {
+        "citation_in_scope": true,
+        "evidence_match": "exact",
+        "overlap": 1.0,
+        "options_valid": true,
+        "notes": []
+      }
+    }
+  ]
+}

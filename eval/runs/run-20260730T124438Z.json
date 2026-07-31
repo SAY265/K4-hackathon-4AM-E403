@@ -1,0 +1,209 @@
+{
+  "run_at_utc": "20260730T124438Z",
+  "document": "[Slide] d1-slide-hackathon",
+  "refs": [
+    "Trang 1",
+    "Trang 2",
+    "Trang 3",
+    "Trang 4",
+    "Trang 5",
+    "Trang 6",
+    "Trang 7",
+    "Trang 8",
+    "Trang 9",
+    "Trang 10"
+  ],
+  "model": "openai/gpt-4o-mini",
+  "path": "happy",
+  "status": "ok",
+  "reason": "",
+  "n_questions": 8,
+  "pass_rate": 1.0,
+  "context_chars": 4380,
+  "usage": {
+    "prompt_tokens": 2078,
+    "completion_tokens": 1075,
+    "total_tokens": 3153,
+    "cost": 0.0009567,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.0009567,
+      "upstream_inference_prompt_cost": 0.0003117,
+      "upstream_inference_completions_cost": 0.000645
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "note": "",
+  "questions": [
+    {
+      "question": "AI được định nghĩa như thế nào trong tài liệu?",
+      "options": [
+        "Là hệ thống có yếu tố thông minh.",
+        "Là một loại robot tự động.",
+        "Là phần mềm chỉ dùng để phân tích dữ liệu.",
+        "Là một thuật toán duy nhất."
+      ],
+      "answer_index": 0,
+      "explanation": "AI được định nghĩa là một chiếc ô lớn nhất: mọi hệ thống có yếu tố 'thông minh'.",
+      "citation_ref": "Trang 3",
+      "evidence_quote": "AI — chiếc ô lớn nhất: mọi hệ thống có yếu tố 'thông minhˮ.",
+      "verification": {
+        "citation_in_scope": true,
+        "evidence_match": "exact",
+        "overlap": 1.0,
+        "options_valid": true,
+        "notes": []
+      }
+    },
+    {
+      "question": "Generative AI có đặc điểm gì nổi bật?",
+      "options": [
+        "Sinh ra thứ mới như văn bản, ảnh, code.",
+        "Chỉ phân loại dữ liệu.",
+        "Dùng để lập kế hoạch.",
+        "Chỉ hoạt động với dữ liệu số."
+      ],
+      "answer_index": 0,
+      "explanation": "Generative AI có khả năng sinh ra thứ mới như văn bản, ảnh, code.",
+      "citation_ref": "Trang 4",
+      "evidence_quote": "Generative AI — Sinh ra thứ mới: văn bản, ảnh, code.",
+      "verification": {
+        "citation_in_scope": true,
+        "evidence_match": "exact",
+        "overlap": 1.0,
+        "options_valid": true,
+        "notes": []
+      }
+    },
+    {
+      "question": "LLM có vai trò gì trong AI?",
+      "options": [
+        "Là engine chung cho cả Generative lẫn Agentic.",
+        "Chỉ là một chatbot.",
+        "Là một thuật toán duy nhất.",
+        "Chỉ dùng để phân tích dữ liệu."
+      ],
+      "answer_index": 0,
+      "explanation": "LLM là engine chung của cả Generative lẫn Agentic, không chỉ là một chatbot.",
+      "citation_ref": "Trang 4",
+      "evidence_quote": "LLM là engine chung của cả Generative lẫn Agentic.",
+      "verification": {
+        "citation_in_scope": true,
+        "evidence_match": "exact",
+        "overlap": 1.0,
+        "options_valid": true,
+        "notes": []
+      }
+    },
+    {
+      "question": "Mô hình nào đã cách mạng hóa cách hiểu ngôn ngữ?",
+      "options": [
+        "Transformer.",
+        "Expert systems.",
+        "ChatGPT.",
+        "ImageNet."
+      ],
+      "answer_index": 0,
+      "explanation": "Transformer là bước ngoặt vì nó cho mô hình hiểu ngôn ngữ theo cách linh hoạt hơn.",
+      "citation_ref": "Trang 8",
+      "evidence_quote": "Transformer là bước ngoặt vì nó cho mô hình hiểu ngôn ngữ theo cách linh hoạt hơn.",
+      "verification": {
+        "citation_in_scope": true,
+        "evidence_match": "exact",
+        "overlap": 1.0,
+        "options_valid": true,
+        "notes": []
+      }
+    },
+    {
+      "question": "Ai là người đứng sau cuộc cách mạng dữ liệu với ImageNet?",
+      "options": [
+        "Fei-Fei Li.",
+        "Geoffrey Hinton.",
+        "Yann LeCun.",
+        "Andrew Ng."
+      ],
+      "answer_index": 0,
+      "explanation": "Fei-Fei Li đã chọn con đường khác bằng cách xây bộ dữ liệu lớn hơn với ImageNet.",
+      "citation_ref": "Trang 7",
+      "evidence_quote": "Fei-Fei Li chọn con đường khác: xây bộ dữ liệu lớn hơn — 14 triệu ảnh được gán nhãn tay.",
+      "verification": {
+        "citation_in_scope": true,
+        "evidence_match": "exact",
+        "overlap": 1.0,
+        "options_valid": true,
+        "notes": []
+      }
+    },
+    {
+      "question": "ChatGPT đã xuất hiện vào năm nào?",
+      "options": [
+        "2022.",
+        "2017.",
+        "2009.",
+        "1980."
+      ],
+      "answer_index": 0,
+      "explanation": "ChatGPT xuất hiện vào năm 2022 như một trải nghiệm đại chúng.",
+      "citation_ref": "Trang 9",
+      "evidence_quote": "ChatGPT xuất hiện như một trải nghiệm đại chúng.",
+      "verification": {
+        "citation_in_scope": true,
+        "evidence_match": "exact",
+        "overlap": 1.0,
+        "options_valid": true,
+        "notes": []
+      }
+    },
+    {
+      "question": "Expert systems được phát triển nhằm mục đích gì?",
+      "options": [
+        "Giải quyết một loại bài toán chuyên môn hẹp.",
+        "Thực hiện tất cả các loại bài toán.",
+        "Tạo ra dữ liệu mới.",
+        "Phân loại dữ liệu."
+      ],
+      "answer_index": 0,
+      "explanation": "Expert systems ra đời để giải quyết một loại bài toán chuyên môn hẹp.",
+      "citation_ref": "Trang 6",
+      "evidence_quote": "Đặt lại vấn đề: 'Nếu AI chỉ giải thật tốt một loại bài toán chuyên môn hẹp thì sao?'",
+      "verification": {
+        "citation_in_scope": true,
+        "evidence_match": "exact",
+        "overlap": 1.0,
+        "options_valid": true,
+        "notes": []
+      }
+    },
+    {
+      "question": "Mô hình nào không phải là một phần của AI?",
+      "options": [
+        "Mô hình không có yếu tố thông minh.",
+        "Expert systems.",
+        "Generative AI.",
+        "Discriminative AI."
+      ],
+      "answer_index": 0,
+      "explanation": "Mô hình không có yếu tố thông minh không thể được xem là một phần của AI.",
+      "citation_ref": "Trang 3",
+      "evidence_quote": "AI — chiếc ô lớn nhất: mọi hệ thống có yếu tố 'thông minhˮ.",
+      "verification": {
+        "citation_in_scope": true,
+        "evidence_match": "exact",
+        "overlap": 1.0,
+        "options_valid": true,
+        "notes": []
+      }
+    }
+  ]
+}

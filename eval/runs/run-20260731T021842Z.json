@@ -1,0 +1,149 @@
+{
+  "run_at_utc": "20260731T021842Z",
+  "document": "[Slide] d1-slide-hackathon",
+  "refs": [
+    "Trang 1",
+    "Trang 2",
+    "Trang 3",
+    "Trang 4",
+    "Trang 5",
+    "Trang 6",
+    "Trang 7",
+    "Trang 8",
+    "Trang 9",
+    "Trang 10"
+  ],
+  "model": "openai/gpt-4o-mini",
+  "path": "happy",
+  "status": "ok",
+  "reason": "",
+  "n_questions": 5,
+  "pass_rate": 1.0,
+  "context_chars": 4380,
+  "usage": {
+    "prompt_tokens": 2079,
+    "completion_tokens": 684,
+    "total_tokens": 2763,
+    "cost": 0.00072225,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00072225,
+      "upstream_inference_prompt_cost": 0.00031185,
+      "upstream_inference_completions_cost": 0.0004104
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "note": "",
+  "questions": [
+    {
+      "question": "AI là gì?",
+      "options": [
+        "Hệ thống có yếu tố thông minh.",
+        "Mạng nơ-ron nhiều tầng.",
+        "Mô hình ngôn ngữ lớn.",
+        "Sinh nội dung mới."
+      ],
+      "answer_index": 0,
+      "explanation": "AI là một hệ thống có yếu tố thông minh, bao gồm nhiều lĩnh vực khác nhau.",
+      "citation_ref": "Trang 3",
+      "evidence_quote": "AI — chiếc ô lớn nhất: mọi hệ thống có yếu tố “thông minhˮ.",
+      "verification": {
+        "citation_in_scope": true,
+        "evidence_match": "exact",
+        "overlap": 1.0,
+        "options_valid": true,
+        "notes": []
+      }
+    },
+    {
+      "question": "Machine Learning là gì?",
+      "options": [
+        "Học từ dữ liệu thay vì viết luật tay.",
+        "Sinh ra nội dung mới.",
+        "Mô hình ngôn ngữ lớn.",
+        "Hệ thống có yếu tố thông minh."
+      ],
+      "answer_index": 0,
+      "explanation": "Machine Learning là quá trình học từ dữ liệu thay vì viết luật tay.",
+      "citation_ref": "Trang 3",
+      "evidence_quote": "Machine learning — học từ dữ liệu thay vì viết luật tay.",
+      "verification": {
+        "citation_in_scope": true,
+        "evidence_match": "exact",
+        "overlap": 1.0,
+        "options_valid": true,
+        "notes": []
+      }
+    },
+    {
+      "question": "Deep Learning là gì?",
+      "options": [
+        "Mạng nơ-ron nhiều tầng tự học đặc trưng.",
+        "Hệ thống có yếu tố thông minh.",
+        "Sinh ra nội dung mới.",
+        "Mô hình ngôn ngữ lớn."
+      ],
+      "answer_index": 0,
+      "explanation": "Deep Learning là mạng nơ-ron nhiều tầng tự học đặc trưng.",
+      "citation_ref": "Trang 3",
+      "evidence_quote": "Deep learning — mạng nơ-ron nhiều tầng tự học đặc trưng.",
+      "verification": {
+        "citation_in_scope": true,
+        "evidence_match": "exact",
+        "overlap": 1.0,
+        "options_valid": true,
+        "notes": []
+      }
+    },
+    {
+      "question": "Generative AI là gì?",
+      "options": [
+        "Sinh nội dung mới như văn bản, ảnh, code.",
+        "Hệ thống có yếu tố thông minh.",
+        "Mô hình ngôn ngữ lớn.",
+        "Học từ dữ liệu."
+      ],
+      "answer_index": 0,
+      "explanation": "Generative AI có khả năng sinh ra nội dung mới như văn bản, ảnh, và code.",
+      "citation_ref": "Trang 3",
+      "evidence_quote": "Generative AI — sinh nội dung mới: văn bản, ảnh, code.",
+      "verification": {
+        "citation_in_scope": true,
+        "evidence_match": "exact",
+        "overlap": 1.0,
+        "options_valid": true,
+        "notes": []
+      }
+    },
+    {
+      "question": "LLM là gì?",
+      "options": [
+        "Mô hình ngôn ngữ rất lớn.",
+        "Mạng nơ-ron nhiều tầng.",
+        "Hệ thống có yếu tố thông minh.",
+        "Sinh nội dung mới."
+      ],
+      "answer_index": 0,
+      "explanation": "LLM (Large Language Model) là một mô hình ngôn ngữ rất lớn, thường dựa trên kiến trúc Transformer.",
+      "citation_ref": "Trang 10",
+      "evidence_quote": "LLM (Large Language Model) là một mô hình ngôn ngữ rất lớn, thường dựa trên kiến trúc Transformer.",
+      "verification": {
+        "citation_in_scope": true,
+        "evidence_match": "exact",
+        "overlap": 1.0,
+        "options_valid": true,
+        "notes": []
+      }
+    }
+  ]
+}

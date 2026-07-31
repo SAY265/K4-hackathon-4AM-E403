@@ -1,0 +1,149 @@
+{
+  "run_at_utc": "20260731T021544Z",
+  "document": "[Slide] d1-slide-hackathon",
+  "refs": [
+    "Trang 1",
+    "Trang 2",
+    "Trang 3",
+    "Trang 4",
+    "Trang 5",
+    "Trang 6",
+    "Trang 7",
+    "Trang 8",
+    "Trang 9",
+    "Trang 10"
+  ],
+  "model": "openai/gpt-4o-mini",
+  "path": "happy",
+  "status": "ok",
+  "reason": "",
+  "n_questions": 5,
+  "pass_rate": 1.0,
+  "context_chars": 4380,
+  "usage": {
+    "prompt_tokens": 2077,
+    "completion_tokens": 714,
+    "total_tokens": 2791,
+    "cost": 0.00073995,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00073995,
+      "upstream_inference_prompt_cost": 0.00031155,
+      "upstream_inference_completions_cost": 0.0004284
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "note": "",
+  "questions": [
+    {
+      "question": "AI được định nghĩa như thế nào trong tài liệu?",
+      "options": [
+        "Là hệ thống có yếu tố thông minh.",
+        "Là một loại thuật toán phức tạp.",
+        "Là một mô hình ngôn ngữ lớn.",
+        "Là một công cụ phân tích dữ liệu."
+      ],
+      "answer_index": 0,
+      "explanation": "AI được định nghĩa là một chiếc ô lớn nhất, bao gồm mọi hệ thống có yếu tố 'thông minh'.",
+      "citation_ref": "Trang 3",
+      "evidence_quote": "AI — chiếc ô lớn nhất: mọi hệ thống có yếu tố “thông minhˮ.",
+      "verification": {
+        "citation_in_scope": true,
+        "evidence_match": "exact",
+        "overlap": 1.0,
+        "options_valid": true,
+        "notes": []
+      }
+    },
+    {
+      "question": "Mô hình nào được coi là nền tảng cho các mô hình ngôn ngữ lớn hiện nay?",
+      "options": [
+        "Expert systems",
+        "Transformer",
+        "Generative AI",
+        "Discriminative AI"
+      ],
+      "answer_index": 1,
+      "explanation": "Transformer là bước ngoặt vì nó cho mô hình hiểu ngôn ngữ theo cách linh hoạt hơn, trở thành nền móng kỹ thuật cho GPT, BERT và toàn bộ làn sóng LLM sau đó.",
+      "citation_ref": "Trang 8",
+      "evidence_quote": "Transformer là bước ngoặt vì nó cho mô hình hiểu ngôn ngữ theo cách linh hoạt hơn.",
+      "verification": {
+        "citation_in_scope": true,
+        "evidence_match": "exact",
+        "overlap": 1.0,
+        "options_valid": true,
+        "notes": []
+      }
+    },
+    {
+      "question": "ChatGPT được mô tả như thế nào trong tài liệu?",
+      "options": [
+        "Một mô hình ngôn ngữ mạnh mẽ.",
+        "Một hệ thống chuyên gia.",
+        "Một công cụ phân tích dữ liệu.",
+        "Một thuật toán học sâu."
+      ],
+      "answer_index": 0,
+      "explanation": "ChatGPT xuất hiện như một trải nghiệm đại chúng, cho phép người dùng phổ thông tiếp cận một mô hình ngôn ngữ mạnh.",
+      "citation_ref": "Trang 9",
+      "evidence_quote": "ChatGPT xuất hiện như một trải nghiệm đại chúng.",
+      "verification": {
+        "citation_in_scope": true,
+        "evidence_match": "exact",
+        "overlap": 1.0,
+        "options_valid": true,
+        "notes": []
+      }
+    },
+    {
+      "question": "Generative AI có đặc điểm gì nổi bật?",
+      "options": [
+        "Sinh ra nội dung mới.",
+        "Phân loại và dự đoán.",
+        "Hành động theo kế hoạch.",
+        "Phân tích dữ liệu lớn."
+      ],
+      "answer_index": 0,
+      "explanation": "Generative AI có khả năng sinh ra thứ mới như văn bản, ảnh, và code.",
+      "citation_ref": "Trang 4",
+      "evidence_quote": "Generative AI — sinh ra thứ mới: văn bản, ảnh, code.",
+      "verification": {
+        "citation_in_scope": true,
+        "evidence_match": "exact",
+        "overlap": 1.0,
+        "options_valid": true,
+        "notes": []
+      }
+    },
+    {
+      "question": "Lịch sử AI đã trải qua bao nhiêu năm phát triển?",
+      "options": [
+        "50 năm",
+        "70 năm",
+        "100 năm",
+        "30 năm"
+      ],
+      "answer_index": 1,
+      "explanation": "Lịch sử AI đã trải qua 70 năm phát triển, từ những ngày đầu khai sinh đến những bước tiến hiện tại.",
+      "citation_ref": "Trang 5",
+      "evidence_quote": "Lịch sử AI 70 năm",
+      "verification": {
+        "citation_in_scope": true,
+        "evidence_match": "exact",
+        "overlap": 1.0,
+        "options_valid": true,
+        "notes": []
+      }
+    }
+  ]
+}

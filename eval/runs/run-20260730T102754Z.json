@@ -1,0 +1,149 @@
+{
+  "run_at_utc": "20260730T102754Z",
+  "document": "[Slide] d1-slide-hackathon",
+  "refs": [
+    "Trang 1",
+    "Trang 2",
+    "Trang 3",
+    "Trang 4",
+    "Trang 5",
+    "Trang 6",
+    "Trang 7",
+    "Trang 8",
+    "Trang 9",
+    "Trang 10"
+  ],
+  "model": "openai/gpt-4o-mini",
+  "path": "happy",
+  "status": "ok",
+  "reason": "",
+  "n_questions": 5,
+  "pass_rate": 1.0,
+  "context_chars": 4380,
+  "usage": {
+    "prompt_tokens": 2077,
+    "completion_tokens": 712,
+    "total_tokens": 2789,
+    "cost": 0.00073875,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00073875,
+      "upstream_inference_prompt_cost": 0.00031155,
+      "upstream_inference_completions_cost": 0.0004272
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "note": "",
+  "questions": [
+    {
+      "question": "AI được định nghĩa là gì trong tài liệu?",
+      "options": [
+        "Một hệ thống chỉ có khả năng học từ dữ liệu.",
+        "Một chiếc ô lớn nhất bao gồm mọi hệ thống có yếu tố thông minh.",
+        "Một mô hình ngôn ngữ chuyên biệt.",
+        "Một công cụ để sinh nội dung mới."
+      ],
+      "answer_index": 1,
+      "explanation": "AI được định nghĩa là một chiếc ô lớn nhất bao gồm mọi hệ thống có yếu tố thông minh.",
+      "citation_ref": "Trang 3",
+      "evidence_quote": "AI — chiếc ô lớn nhất: mọi hệ thống có yếu tố “thông minhˮ.",
+      "verification": {
+        "citation_in_scope": true,
+        "evidence_match": "exact",
+        "overlap": 1.0,
+        "options_valid": true,
+        "notes": []
+      }
+    },
+    {
+      "question": "Mô hình nào được coi là nền tảng cho các mô hình ngôn ngữ hiện nay?",
+      "options": [
+        "Expert systems",
+        "Transformer",
+        "Generative AI",
+        "Discriminative AI"
+      ],
+      "answer_index": 1,
+      "explanation": "Transformer là bước ngoặt cho phép mô hình hiểu ngôn ngữ theo cách linh hoạt hơn.",
+      "citation_ref": "Trang 8",
+      "evidence_quote": "Transformer là bước ngoặt vì nó cho mô hình hiểu ngôn ngữ theo cách linh hoạt hơn.",
+      "verification": {
+        "citation_in_scope": true,
+        "evidence_match": "exact",
+        "overlap": 1.0,
+        "options_valid": true,
+        "notes": []
+      }
+    },
+    {
+      "question": "Generative AI có chức năng gì?",
+      "options": [
+        "Phân loại và dự đoán.",
+        "Sinh ra thứ mới như văn bản, ảnh, code.",
+        "Lập kế hoạch và hành động.",
+        "Chỉ thực hiện các tác vụ đơn giản."
+      ],
+      "answer_index": 1,
+      "explanation": "Generative AI có chức năng sinh ra thứ mới như văn bản, ảnh, code.",
+      "citation_ref": "Trang 4",
+      "evidence_quote": "Generative AI — Sinh ra thứ mới: văn bản, ảnh, code.",
+      "verification": {
+        "citation_in_scope": true,
+        "evidence_match": "exact",
+        "overlap": 1.0,
+        "options_valid": true,
+        "notes": []
+      }
+    },
+    {
+      "question": "LLM là gì?",
+      "options": [
+        "Một mô hình ngôn ngữ nhỏ.",
+        "Một bộ não nền cho nhiều ứng dụng khác nhau.",
+        "Một loại chatbot đơn giản.",
+        "Một hệ thống phân loại dữ liệu."
+      ],
+      "answer_index": 1,
+      "explanation": "LLM là một bộ não nền cho nhiều ứng dụng khác nhau, không chỉ là một chatbot.",
+      "citation_ref": "Trang 10",
+      "evidence_quote": "LLM = bộ não ngôn ngữ dùng chung cho mọi việc — sản phẩm bạn thấy chỉ là lớp áo bên ngoài.",
+      "verification": {
+        "citation_in_scope": true,
+        "evidence_match": "exact",
+        "overlap": 1.0,
+        "options_valid": true,
+        "notes": []
+      }
+    },
+    {
+      "question": "Cuộc cách mạng của dữ liệu trong AI được ghi nhận vào năm nào?",
+      "options": [
+        "1980",
+        "2009",
+        "2017",
+        "2022"
+      ],
+      "answer_index": 1,
+      "explanation": "Năm 2009, Fei-Fei Li đã tạo ra một cuộc cách mạng của dữ liệu với bộ dữ liệu ImageNet.",
+      "citation_ref": "Trang 7",
+      "evidence_quote": "2009: Fei-Fei Li và ImageNet — cuộc cách mạng của dữ liệu.",
+      "verification": {
+        "citation_in_scope": true,
+        "evidence_match": "exact",
+        "overlap": 1.0,
+        "options_valid": true,
+        "notes": []
+      }
+    }
+  ]
+}

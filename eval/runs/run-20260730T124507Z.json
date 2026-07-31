@@ -1,0 +1,168 @@
+{
+  "run_at_utc": "20260730T124507Z",
+  "document": "[Slide] d1-slide-hackathon",
+  "refs": [
+    "Trang 1",
+    "Trang 2",
+    "Trang 3",
+    "Trang 4",
+    "Trang 5",
+    "Trang 6",
+    "Trang 7",
+    "Trang 8",
+    "Trang 9",
+    "Trang 10",
+    "Trang 11",
+    "Trang 12",
+    "Trang 13",
+    "Trang 14",
+    "Trang 15",
+    "Trang 16",
+    "Trang 17",
+    "Trang 18",
+    "Trang 19",
+    "Trang 20",
+    "Trang 21",
+    "Trang 22",
+    "Trang 23",
+    "Trang 24",
+    "Trang 25",
+    "Trang 26",
+    "Trang 27",
+    "Trang 28",
+    "Trang 29"
+  ],
+  "model": "openai/gpt-4o-mini",
+  "path": "low_confidence",
+  "status": "insufficient_evidence",
+  "reason": "Tài liệu không đủ nội dung để sinh 10 câu hỏi trắc nghiệm phân tích tình huống. Chỉ có thể tạo được 5 câu.",
+  "n_questions": 5,
+  "pass_rate": 1.0,
+  "context_chars": 16945,
+  "usage": {
+    "prompt_tokens": 6548,
+    "completion_tokens": 795,
+    "total_tokens": 7343,
+    "cost": 0.0013056,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 2048,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.0013056,
+      "upstream_inference_prompt_cost": 0.0008286,
+      "upstream_inference_completions_cost": 0.000477
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "note": "",
+  "questions": [
+    {
+      "question": "Mô hình LLM hoạt động dựa trên cơ chế nào?",
+      "options": [
+        "Học từ dữ liệu",
+        "Sử dụng luật tay",
+        "Dựa vào mạng nơ-ron",
+        "Tất cả các phương án trên"
+      ],
+      "answer_index": 3,
+      "explanation": "Mô hình LLM hoạt động dựa trên nhiều cơ chế, bao gồm học từ dữ liệu, sử dụng mạng nơ-ron và không chỉ dựa vào luật tay.",
+      "citation_ref": "Trang 3",
+      "evidence_quote": "LLM không phải toàn bộ AI — nhưng nó là tầng nền của gần hết trải nghiệm AI bạn dùng hôm nay",
+      "verification": {
+        "citation_in_scope": true,
+        "evidence_match": "exact",
+        "overlap": 1.0,
+        "options_valid": true,
+        "notes": []
+      }
+    },
+    {
+      "question": "Điều gì làm cho Transformer trở thành bước ngoặt trong AI?",
+      "options": [
+        "Khả năng hiểu ngôn ngữ linh hoạt",
+        "Sử dụng mạng nơ-ron đơn giản",
+        "Khả năng sinh nội dung mới",
+        "Tăng tốc độ xử lý dữ liệu"
+      ],
+      "answer_index": 0,
+      "explanation": "Transformer giúp mô hình hiểu ngôn ngữ theo cách linh hoạt hơn, cho phép mỗi từ nhìn sang những từ quan trọng khác trong câu.",
+      "citation_ref": "Trang 8",
+      "evidence_quote": "Transformer là bước ngoặt vì nó cho mô hình hiểu ngôn ngữ theo cách linh hoạt hơn",
+      "verification": {
+        "citation_in_scope": true,
+        "evidence_match": "exact",
+        "overlap": 1.0,
+        "options_valid": true,
+        "notes": []
+      }
+    },
+    {
+      "question": "LLM được tạo ra như thế nào?",
+      "options": [
+        "Chỉ cần dữ liệu lớn",
+        "Đọc nhiều, được chỉ, được uốn nắn",
+        "Chỉ cần huấn luyện một lần",
+        "Không cần dữ liệu"
+      ],
+      "answer_index": 1,
+      "explanation": "LLM được tạo ra thông qua quá trình đọc nhiều, được chỉ dẫn và uốn nắn để học cách trả lời.",
+      "citation_ref": "Trang 18",
+      "evidence_quote": "LLM được tạo ra như thế nào? — đọc nhiều, được chỉ, được uốn nắn, luyện đề",
+      "verification": {
+        "citation_in_scope": true,
+        "evidence_match": "exact",
+        "overlap": 1.0,
+        "options_valid": true,
+        "notes": []
+      }
+    },
+    {
+      "question": "Mô hình nào được coi là engine chung cho cả Generative và Agentic AI?",
+      "options": [
+        "Discriminative AI",
+        "LLM",
+        "Deep Learning",
+        "Machine Learning"
+      ],
+      "answer_index": 1,
+      "explanation": "LLM là engine chung cho cả Generative và Agentic AI, cho phép thực hiện nhiều tác vụ khác nhau.",
+      "citation_ref": "Trang 4",
+      "evidence_quote": "LLM là engine chung của cả Generative lẫn Agentic",
+      "verification": {
+        "citation_in_scope": true,
+        "evidence_match": "exact",
+        "overlap": 1.0,
+        "options_valid": true,
+        "notes": []
+      }
+    },
+    {
+      "question": "Điều gì là một trong những giới hạn của mô hình AI?",
+      "options": [
+        "Có thể học mọi thứ",
+        "Bị 'đóng băng' tại ngày ngừng đọc",
+        "Luôn chính xác",
+        "Có thể tự động cập nhật thông tin"
+      ],
+      "answer_index": 1,
+      "explanation": "Mô hình AI bị 'đóng băng' tại thời điểm ngừng đọc, không biết thông tin mới trừ khi được cung cấp.",
+      "citation_ref": "Trang 20",
+      "evidence_quote": "Model bị 'đóng băng' tại ngày ngừng đọc.",
+      "verification": {
+        "citation_in_scope": true,
+        "evidence_match": "exact",
+        "overlap": 1.0,
+        "options_valid": true,
+        "notes": []
+      }
+    }
+  ]
+}

@@ -1,0 +1,248 @@
+{
+  "run_at_utc": "20260730T124541Z",
+  "document": "[Slide] d1-slide-hackathon",
+  "refs": [
+    "Trang 1",
+    "Trang 2",
+    "Trang 3",
+    "Trang 4",
+    "Trang 5",
+    "Trang 6",
+    "Trang 7",
+    "Trang 8",
+    "Trang 9",
+    "Trang 10",
+    "Trang 11",
+    "Trang 12",
+    "Trang 13",
+    "Trang 14",
+    "Trang 15",
+    "Trang 16",
+    "Trang 17",
+    "Trang 18",
+    "Trang 19",
+    "Trang 20",
+    "Trang 21",
+    "Trang 22",
+    "Trang 23",
+    "Trang 24",
+    "Trang 25",
+    "Trang 26",
+    "Trang 27",
+    "Trang 28",
+    "Trang 29"
+  ],
+  "model": "openai/gpt-4o-mini",
+  "path": "happy",
+  "status": "ok",
+  "reason": "",
+  "n_questions": 9,
+  "pass_rate": 1.0,
+  "context_chars": 16945,
+  "usage": {
+    "prompt_tokens": 6548,
+    "completion_tokens": 1199,
+    "total_tokens": 7747,
+    "cost": 0.0017016,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.0017016,
+      "upstream_inference_prompt_cost": 0.0009822,
+      "upstream_inference_completions_cost": 0.0007194
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "note": "",
+  "questions": [
+    {
+      "question": "Mô hình nào được coi là nền tảng cho hầu hết các trải nghiệm AI hiện nay?",
+      "options": [
+        "LLM",
+        "Generative AI",
+        "Deep Learning",
+        "Machine Learning"
+      ],
+      "answer_index": 0,
+      "explanation": "LLM không phải toàn bộ AI — nhưng nó là tầng nền của gần hết trải nghiệm AI bạn dùng hôm nay.",
+      "citation_ref": "Trang 3",
+      "evidence_quote": "LLM không phải toàn bộ AI — nhưng nó là tầng nền của gần hết trải nghiệm AI bạn dùng hôm nay",
+      "verification": {
+        "citation_in_scope": true,
+        "evidence_match": "exact",
+        "overlap": 1.0,
+        "options_valid": true,
+        "notes": []
+      }
+    },
+    {
+      "question": "Điều gì là đặc điểm chính của Generative AI?",
+      "options": [
+        "Phân loại dữ liệu",
+        "Sinh ra nội dung mới",
+        "Dự đoán kết quả",
+        "Tự động hóa quy trình"
+      ],
+      "answer_index": 1,
+      "explanation": "Generative AI — sinh ra thứ mới: văn bản, ảnh, code.",
+      "citation_ref": "Trang 4",
+      "evidence_quote": "Generative AI — sinh ra thứ mới: văn bản, ảnh, code.",
+      "verification": {
+        "citation_in_scope": true,
+        "evidence_match": "exact",
+        "overlap": 1.0,
+        "options_valid": true,
+        "notes": []
+      }
+    },
+    {
+      "question": "Mô hình nào được coi là bước ngoặt trong việc hiểu ngôn ngữ?",
+      "options": [
+        "Expert Systems",
+        "Transformer",
+        "LLM",
+        "Generative AI"
+      ],
+      "answer_index": 1,
+      "explanation": "Transformer là bước ngoặt vì nó cho mô hình hiểu ngôn ngữ theo cách linh hoạt hơn.",
+      "citation_ref": "Trang 8",
+      "evidence_quote": "Transformer là bước ngoặt vì nó cho mô hình hiểu ngôn ngữ theo cách linh hoạt hơn.",
+      "verification": {
+        "citation_in_scope": true,
+        "evidence_match": "exact",
+        "overlap": 1.0,
+        "options_valid": true,
+        "notes": []
+      }
+    },
+    {
+      "question": "Tại sao mô hình có thể tự tin mà sai?",
+      "options": [
+        "Do dữ liệu không đủ",
+        "Do không có đủ context",
+        "Do tối ưu cho câu nghe hợp lý",
+        "Do không được huấn luyện đúng"
+      ],
+      "answer_index": 2,
+      "explanation": "Model tối ưu cho câu nghe hợp lý, không phải tra sự thật — nên có thể tự tin mà sai.",
+      "citation_ref": "Trang 20",
+      "evidence_quote": "Model tối ưu cho câu nghe hợp lý, không phải tra sự thật — nên có thể tự tin mà sai.",
+      "verification": {
+        "citation_in_scope": true,
+        "evidence_match": "exact",
+        "overlap": 1.0,
+        "options_valid": true,
+        "notes": []
+      }
+    },
+    {
+      "question": "Mô hình nào có khả năng tự lập kế hoạch và chia mục tiêu thành nhiều bước?",
+      "options": [
+        "Discriminative AI",
+        "Generative AI",
+        "Agentic AI",
+        "LLM"
+      ],
+      "answer_index": 2,
+      "explanation": "Biết lập kế hoạch + tự chia mục tiêu thành nhiều bước, dùng nhiều tool nối tiếp, tự kiểm tra kết quả từng bước.",
+      "citation_ref": "Trang 23",
+      "evidence_quote": "Biết lập kế hoạch + tự chia mục tiêu thành nhiều bước, dùng nhiều tool nối tiếp, tự kiểm tra kết quả từng bước.",
+      "verification": {
+        "citation_in_scope": true,
+        "evidence_match": "exact",
+        "overlap": 1.0,
+        "options_valid": true,
+        "notes": []
+      }
+    },
+    {
+      "question": "Điều gì là một trong những yếu tố quan trọng để sử dụng AI hiệu quả?",
+      "options": [
+        "Quản lý context",
+        "Tăng số lượng token",
+        "Giảm chi phí",
+        "Sử dụng nhiều model"
+      ],
+      "answer_index": 0,
+      "explanation": "Hiểu attention để dùng AI hiệu quả: quản context = quản sự chú ý.",
+      "citation_ref": "Trang 16",
+      "evidence_quote": "Hiểu attention để dùng AI hiệu quả: quản context = quản sự chú ý.",
+      "verification": {
+        "citation_in_scope": true,
+        "evidence_match": "exact",
+        "overlap": 1.0,
+        "options_valid": true,
+        "notes": []
+      }
+    },
+    {
+      "question": "Mô hình nào có khả năng tự động hóa quy trình mà không cần can thiệp của con người?",
+      "options": [
+        "Discriminative AI",
+        "Generative AI",
+        "Agentic AI",
+        "LLM"
+      ],
+      "answer_index": 2,
+      "explanation": "Agent không phải “một loại model khácˮ — đó là LLM được đặt vào vòng làm việc có mục tiêu và hành động.",
+      "citation_ref": "Trang 23",
+      "evidence_quote": "Agent không phải “một loại model khácˮ — đó là LLM được đặt vào vòng làm việc có mục tiêu và hành động.",
+      "verification": {
+        "citation_in_scope": true,
+        "evidence_match": "exact",
+        "overlap": 1.0,
+        "options_valid": true,
+        "notes": []
+      }
+    },
+    {
+      "question": "Điều gì có thể làm cho một mô hình bị 'đóng băng' tại ngày ngừng đọc?",
+      "options": [
+        "Bong bóng thời gian",
+        "Thiếu dữ liệu",
+        "Không đủ context",
+        "Không được huấn luyện"
+      ],
+      "answer_index": 0,
+      "explanation": "Model bị 'đóng băng' tại ngày ngừng đọc. Chuyện sau đó nó không biết — trừ khi bạn cung cấp thêm.",
+      "citation_ref": "Trang 20",
+      "evidence_quote": "Model bị 'đóng băng' tại ngày ngừng đọc.",
+      "verification": {
+        "citation_in_scope": true,
+        "evidence_match": "exact",
+        "overlap": 1.0,
+        "options_valid": true,
+        "notes": []
+      }
+    },
+    {
+      "question": "Yếu tố nào không ảnh hưởng đến chi phí khi gọi API?",
+      "options": [
+        "Số lượng token đầu vào",
+        "Số lượng token đầu ra",
+        "Thời gian xử lý",
+        "Loại model"
+      ],
+      "answer_index": 2,
+      "explanation": "Input tokens + Output tokens = Chi phí mỗi lần gọi — kiểm soát output là núm vặn lớn nhất.",
+      "citation_ref": "Trang 27",
+      "evidence_quote": "Input tokens + Output tokens = Chi phí mỗi lần gọi — kiểm soát output là núm vặn lớn nhất.",
+      "verification": {
+        "citation_in_scope": true,
+        "evidence_match": "exact",
+        "overlap": 1.0,
+        "options_valid": true,
+        "notes": []
+      }
+    }
+  ]
+}

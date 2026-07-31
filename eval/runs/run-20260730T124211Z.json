@@ -1,0 +1,149 @@
+{
+  "run_at_utc": "20260730T124211Z",
+  "document": "[Slide] d1-slide-hackathon",
+  "refs": [
+    "Trang 1",
+    "Trang 2",
+    "Trang 3",
+    "Trang 4",
+    "Trang 5",
+    "Trang 6",
+    "Trang 7",
+    "Trang 8",
+    "Trang 9",
+    "Trang 10"
+  ],
+  "model": "openai/gpt-4o-mini",
+  "path": "happy",
+  "status": "ok",
+  "reason": "",
+  "n_questions": 5,
+  "pass_rate": 1.0,
+  "context_chars": 4380,
+  "usage": {
+    "prompt_tokens": 2078,
+    "completion_tokens": 709,
+    "total_tokens": 2787,
+    "cost": 0.0007371,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.0007371,
+      "upstream_inference_prompt_cost": 0.0003117,
+      "upstream_inference_completions_cost": 0.0004254
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "note": "",
+  "questions": [
+    {
+      "question": "Mô hình nào được coi là nền tảng cho các ứng dụng AI hiện nay?",
+      "options": [
+        "LLM",
+        "Generative AI",
+        "Discriminative AI",
+        "Agentic AI"
+      ],
+      "answer_index": 0,
+      "explanation": "LLM không phải toàn bộ AI — nhưng nó là tầng nền của gần hết trải nghiệm AI bạn dùng hôm nay.",
+      "citation_ref": "Trang 3",
+      "evidence_quote": "LLM không phải toàn bộ AI — nhưng nó là tầng nền của gần hết trải nghiệm AI bạn dùng hôm nay.",
+      "verification": {
+        "citation_in_scope": true,
+        "evidence_match": "exact",
+        "overlap": 1.0,
+        "options_valid": true,
+        "notes": []
+      }
+    },
+    {
+      "question": "AI nào có khả năng tự lập kế hoạch và hành động?",
+      "options": [
+        "Discriminative AI",
+        "Generative AI",
+        "Agentic AI",
+        "LLM"
+      ],
+      "answer_index": 2,
+      "explanation": "Agentic AI nhận mục tiêu rồi tự làm nhiều bước: lập kế hoạch, dùng công cụ, hành động.",
+      "citation_ref": "Trang 4",
+      "evidence_quote": "Agentic AI Nhận mục tiêu rồi tự làm nhiều bước: lập kế hoạch, dùng công cụ, hành động.",
+      "verification": {
+        "citation_in_scope": true,
+        "evidence_match": "exact",
+        "overlap": 1.0,
+        "options_valid": true,
+        "notes": []
+      }
+    },
+    {
+      "question": "Ai đã tạo ra cuộc cách mạng dữ liệu với bộ dữ liệu ImageNet?",
+      "options": [
+        "Geoffrey Hinton",
+        "Fei-Fei Li",
+        "Yann LeCun",
+        "Andrew Ng"
+      ],
+      "answer_index": 1,
+      "explanation": "Fei-Fei Li chọn con đường khác: xây bộ dữ liệu lớn hơn — 14 triệu ảnh được gán nhãn tay, hơn 20.000 loại vật.",
+      "citation_ref": "Trang 7",
+      "evidence_quote": "Fei-Fei Li chọn con đường khác: xây bộ dữ liệu lớn hơn — 14 triệu ảnh được gán nhãn tay, hơn 20.000 loại vật.",
+      "verification": {
+        "citation_in_scope": true,
+        "evidence_match": "exact",
+        "overlap": 1.0,
+        "options_valid": true,
+        "notes": []
+      }
+    },
+    {
+      "question": "Mô hình nào đã thay đổi cách hiểu ngôn ngữ trong AI?",
+      "options": [
+        "RNN",
+        "CNN",
+        "Transformer",
+        "SVM"
+      ],
+      "answer_index": 2,
+      "explanation": "Transformer là bước ngoặt vì nó cho mô hình hiểu ngôn ngữ theo cách linh hoạt hơn.",
+      "citation_ref": "Trang 8",
+      "evidence_quote": "Transformer là bước ngoặt vì nó cho mô hình hiểu ngôn ngữ theo cách linh hoạt hơn.",
+      "verification": {
+        "citation_in_scope": true,
+        "evidence_match": "exact",
+        "overlap": 1.0,
+        "options_valid": true,
+        "notes": []
+      }
+    },
+    {
+      "question": "ChatGPT được biết đến như một trải nghiệm gì trong năm 2022?",
+      "options": [
+        "Một mô hình học sâu",
+        "Một hệ chuyên gia",
+        "Một trải nghiệm đại chúng",
+        "Một công cụ lập trình"
+      ],
+      "answer_index": 2,
+      "explanation": "ChatGPT xuất hiện như một trải nghiệm đại chúng lần đầu tiên rất đông người dùng phổ thông có thể trực tiếp chạm vào một mô hình ngôn ngữ mạnh.",
+      "citation_ref": "Trang 9",
+      "evidence_quote": "ChatGPT xuất hiện như một trải nghiệm đại chúng lần đầu tiên rất đông người dùng phổ thông có thể trực tiếp chạm vào một mô hình ngôn ngữ mạnh.",
+      "verification": {
+        "citation_in_scope": true,
+        "evidence_match": "exact",
+        "overlap": 1.0,
+        "options_valid": true,
+        "notes": []
+      }
+    }
+  ]
+}

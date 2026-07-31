@@ -1,0 +1,234 @@
+{
+  "run_at_utc": "20260731T030012Z",
+  "document": "d1-slide-hackathon + d2-slide-hackathon + transcript-01-clean + transcript-03-clean",
+  "refs": [
+    "Tài liệu 1 · Trang 1",
+    "Tài liệu 1 · Trang 2",
+    "Tài liệu 1 · Trang 3",
+    "Tài liệu 1 · Trang 4",
+    "Tài liệu 1 · Trang 5",
+    "Tài liệu 1 · Trang 6",
+    "Tài liệu 1 · Trang 7",
+    "Tài liệu 1 · Trang 8",
+    "Tài liệu 1 · Trang 9",
+    "Tài liệu 1 · Trang 10",
+    "Tài liệu 1 · Trang 11",
+    "Tài liệu 1 · Trang 12",
+    "Tài liệu 1 · Trang 13",
+    "Tài liệu 1 · Trang 14",
+    "Tài liệu 1 · Trang 15",
+    "Tài liệu 1 · Trang 16",
+    "Tài liệu 1 · Trang 17",
+    "Tài liệu 1 · Trang 18",
+    "Tài liệu 1 · Trang 19",
+    "Tài liệu 1 · Trang 20",
+    "Tài liệu 2 · Trang 1",
+    "Tài liệu 2 · Trang 2",
+    "Tài liệu 2 · Trang 3",
+    "Tài liệu 2 · Trang 4",
+    "Tài liệu 2 · Trang 5",
+    "Tài liệu 2 · Trang 6",
+    "Tài liệu 2 · Trang 7",
+    "Tài liệu 2 · Trang 8",
+    "Tài liệu 2 · Trang 9",
+    "Tài liệu 2 · Trang 10",
+    "Tài liệu 2 · Trang 11",
+    "Tài liệu 2 · Trang 12",
+    "Tài liệu 2 · Trang 13",
+    "Tài liệu 2 · Trang 14",
+    "Tài liệu 2 · Trang 15",
+    "Tài liệu 2 · Trang 16",
+    "Tài liệu 2 · Trang 17",
+    "Tài liệu 2 · Trang 18",
+    "Tài liệu 2 · Trang 19",
+    "Tài liệu 2 · Trang 20",
+    "Tài liệu 3 · T01-001",
+    "Tài liệu 3 · T01-002",
+    "Tài liệu 3 · T01-003",
+    "Tài liệu 3 · T01-004",
+    "Tài liệu 3 · T01-005",
+    "Tài liệu 3 · T01-006",
+    "Tài liệu 3 · T01-007",
+    "Tài liệu 3 · T01-008",
+    "Tài liệu 3 · T01-009",
+    "Tài liệu 3 · T01-010",
+    "Tài liệu 3 · T01-011",
+    "Tài liệu 3 · T01-012",
+    "Tài liệu 3 · T01-013",
+    "Tài liệu 3 · T01-014",
+    "Tài liệu 3 · T01-015",
+    "Tài liệu 3 · T01-016",
+    "Tài liệu 3 · T01-017",
+    "Tài liệu 3 · T01-018",
+    "Tài liệu 3 · T01-019",
+    "Tài liệu 3 · T01-020",
+    "Tài liệu 4 · T03-001",
+    "Tài liệu 4 · T03-002",
+    "Tài liệu 4 · T03-003",
+    "Tài liệu 4 · T03-004",
+    "Tài liệu 4 · T03-005",
+    "Tài liệu 4 · T03-006",
+    "Tài liệu 4 · T03-007",
+    "Tài liệu 4 · T03-008",
+    "Tài liệu 4 · T03-009",
+    "Tài liệu 4 · T03-010",
+    "Tài liệu 4 · T03-011",
+    "Tài liệu 4 · T03-012",
+    "Tài liệu 4 · T03-013",
+    "Tài liệu 4 · T03-014",
+    "Tài liệu 4 · T03-015",
+    "Tài liệu 4 · T03-016",
+    "Tài liệu 4 · T03-017",
+    "Tài liệu 4 · T03-018",
+    "Tài liệu 4 · T03-019",
+    "Tài liệu 4 · T03-020"
+  ],
+  "model": "openai/gpt-4o-mini",
+  "path": "happy",
+  "status": "ok",
+  "reason": "",
+  "n_questions": 5,
+  "pass_rate": 0.0,
+  "context_chars": 57693,
+  "usage": {
+    "prompt_tokens": 18337,
+    "completion_tokens": 712,
+    "total_tokens": 19049,
+    "cost": 0.00317775,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00317775,
+      "upstream_inference_prompt_cost": 0.00275055,
+      "upstream_inference_completions_cost": 0.0004272
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "note": "",
+  "questions": [
+    {
+      "question": "AI được định nghĩa như thế nào trong tài liệu?",
+      "options": [
+        "Là một hệ thống có yếu tố thông minh.",
+        "Là một phần mềm đơn giản.",
+        "Là một thiết bị điện tử.",
+        "Là một loại robot tự động."
+      ],
+      "answer_index": 0,
+      "explanation": "AI được định nghĩa là một hệ thống có yếu tố 'thông minh'.",
+      "citation_ref": "Trang 3",
+      "evidence_quote": "AI — chiếc ô lớn nhất: mọi hệ thống có yếu tố 'thông minhˮ.",
+      "verification": {
+        "citation_in_scope": false,
+        "evidence_match": "missing",
+        "overlap": 0.0,
+        "options_valid": true,
+        "notes": [
+          "Mã trích dẫn 'Trang 3' không nằm trong phạm vi đã chọn.",
+          "Không tìm thấy dẫn chứng trong đúng đơn vị được trích dẫn."
+        ]
+      }
+    },
+    {
+      "question": "Mô hình LLM được sử dụng để làm gì?",
+      "options": [
+        "Để sinh nội dung mới.",
+        "Để phân loại dữ liệu.",
+        "Để lập trình phần mềm.",
+        "Để thiết kế giao diện người dùng."
+      ],
+      "answer_index": 0,
+      "explanation": "LLM được định nghĩa là một mô hình ngôn ngữ rất lớn, thường dùng để sinh nội dung mới.",
+      "citation_ref": "Trang 10",
+      "evidence_quote": "LLM là một mô hình ngôn ngữ rất lớn, thường dựa trên kiến trúc Transformer, được luyện trên hàng nghìn tỷ mảnh chữ để học cách đoán mảnh chữ tiếp theo trong ngữ cảnh.",
+      "verification": {
+        "citation_in_scope": false,
+        "evidence_match": "missing",
+        "overlap": 0.0,
+        "options_valid": true,
+        "notes": [
+          "Mã trích dẫn 'Trang 10' không nằm trong phạm vi đã chọn.",
+          "Không tìm thấy dẫn chứng trong đúng đơn vị được trích dẫn."
+        ]
+      }
+    },
+    {
+      "question": "Bước nào không nằm trong quy trình phát triển sản phẩm AI?",
+      "options": [
+        "Đọc tài liệu.",
+        "Xác định bài toán.",
+        "Triển khai giải pháp.",
+        "Đánh giá hiệu quả."
+      ],
+      "answer_index": 0,
+      "explanation": "Đọc tài liệu không phải là một bước trong quy trình phát triển sản phẩm AI.",
+      "citation_ref": "Trang 18",
+      "evidence_quote": "Phát triển sản phẩm AI thì bản thân nó chứa phát triển sản phẩm.",
+      "verification": {
+        "citation_in_scope": false,
+        "evidence_match": "missing",
+        "overlap": 0.0,
+        "options_valid": true,
+        "notes": [
+          "Mã trích dẫn 'Trang 18' không nằm trong phạm vi đã chọn.",
+          "Không tìm thấy dẫn chứng trong đúng đơn vị được trích dẫn."
+        ]
+      }
+    },
+    {
+      "question": "Điểm nào không phải là lợi thế của AI theo tài liệu?",
+      "options": [
+        "Phân tích ngữ cảnh.",
+        "Tự động hóa quy trình.",
+        "Giải quyết mọi vấn đề.",
+        "Cá nhân hóa trải nghiệm."
+      ],
+      "answer_index": 2,
+      "explanation": "AI không thể giải quyết mọi vấn đề, mà chỉ có lợi thế trong những tác vụ cụ thể.",
+      "citation_ref": "Trang 36",
+      "evidence_quote": "AI chỉ đáng làm khi bài toán nằm trong nhóm việc AI làm tốt hơn hẳn rule/heuristic không?",
+      "verification": {
+        "citation_in_scope": false,
+        "evidence_match": "missing",
+        "overlap": 0.0,
+        "options_valid": true,
+        "notes": [
+          "Mã trích dẫn 'Trang 36' không nằm trong phạm vi đã chọn.",
+          "Không tìm thấy dẫn chứng trong đúng đơn vị được trích dẫn."
+        ]
+      }
+    },
+    {
+      "question": "Mô hình nào được xem là nền tảng cho LLM?",
+      "options": [
+        "Convolutional Neural Network.",
+        "Recurrent Neural Network.",
+        "Transformer.",
+        "Support Vector Machine."
+      ],
+      "answer_index": 2,
+      "explanation": "Mô hình Transformer được xem là nền tảng cho LLM.",
+      "citation_ref": "Trang 8",
+      "evidence_quote": "Transformer là bước ngoặt vì nó cho mô hình hiểu ngôn ngữ theo cách linh hoạt hơn.",
+      "verification": {
+        "citation_in_scope": false,
+        "evidence_match": "missing",
+        "overlap": 0.0,
+        "options_valid": true,
+        "notes": [
+          "Mã trích dẫn 'Trang 8' không nằm trong phạm vi đã chọn.",
+          "Không tìm thấy dẫn chứng trong đúng đơn vị được trích dẫn."
+        ]
+      }
+    }
+  ]
+}

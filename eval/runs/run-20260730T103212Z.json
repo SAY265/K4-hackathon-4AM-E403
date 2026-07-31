@@ -1,0 +1,270 @@
+{
+  "run_at_utc": "20260730T103212Z",
+  "document": "[Slide] d1-slide-hackathon",
+  "refs": [
+    "Trang 1",
+    "Trang 2",
+    "Trang 3",
+    "Trang 4",
+    "Trang 5",
+    "Trang 6",
+    "Trang 7",
+    "Trang 8",
+    "Trang 9",
+    "Trang 10",
+    "Trang 11",
+    "Trang 12",
+    "Trang 13",
+    "Trang 14",
+    "Trang 15",
+    "Trang 16",
+    "Trang 17",
+    "Trang 18",
+    "Trang 19",
+    "Trang 20",
+    "Trang 21",
+    "Trang 22",
+    "Trang 23",
+    "Trang 24",
+    "Trang 25",
+    "Trang 26",
+    "Trang 27",
+    "Trang 28",
+    "Trang 29"
+  ],
+  "model": "openai/gpt-4o-mini",
+  "path": "happy",
+  "status": "ok",
+  "reason": "",
+  "n_questions": 10,
+  "pass_rate": 1.0,
+  "context_chars": 16945,
+  "usage": {
+    "prompt_tokens": 6547,
+    "completion_tokens": 1328,
+    "total_tokens": 7875,
+    "cost": 0.00177885,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00177885,
+      "upstream_inference_prompt_cost": 0.00098205,
+      "upstream_inference_completions_cost": 0.0007968
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "note": "",
+  "questions": [
+    {
+      "question": "LLM là gì?",
+      "options": [
+        "Một mô hình ngôn ngữ lớn",
+        "Một loại chatbot",
+        "Một hệ thống phân loại",
+        "Một công cụ tìm kiếm"
+      ],
+      "answer_index": 0,
+      "explanation": "LLM là một mô hình ngôn ngữ rất lớn, thường dựa trên kiến trúc Transformer.",
+      "citation_ref": "Trang 10",
+      "evidence_quote": "LLM (Large Language Model) là một mô hình ngôn ngữ rất lớn, thường dựa trên kiến trúc Transformer.",
+      "verification": {
+        "citation_in_scope": true,
+        "evidence_match": "exact",
+        "overlap": 1.0,
+        "options_valid": true,
+        "notes": []
+      }
+    },
+    {
+      "question": "Mô hình nào được xem là bước ngoặt trong việc hiểu ngôn ngữ?",
+      "options": [
+        "Expert systems",
+        "ImageNet",
+        "Transformer",
+        "ChatGPT"
+      ],
+      "answer_index": 2,
+      "explanation": "Transformer là bước ngoặt vì nó cho mô hình hiểu ngôn ngữ theo cách linh hoạt hơn.",
+      "citation_ref": "Trang 8",
+      "evidence_quote": "Transformer là bước ngoặt vì nó cho mô hình hiểu ngôn ngữ theo cách linh hoạt hơn.",
+      "verification": {
+        "citation_in_scope": true,
+        "evidence_match": "exact",
+        "overlap": 1.0,
+        "options_valid": true,
+        "notes": []
+      }
+    },
+    {
+      "question": "Chức năng chính của Generative AI là gì?",
+      "options": [
+        "Phân loại dữ liệu",
+        "Sinh ra nội dung mới",
+        "Dự đoán kết quả",
+        "Tìm kiếm thông tin"
+      ],
+      "answer_index": 1,
+      "explanation": "Generative AI có chức năng sinh ra thứ mới như văn bản, ảnh, code.",
+      "citation_ref": "Trang 4",
+      "evidence_quote": "Generative AI — sinh nội dung mới: văn bản, ảnh, code.",
+      "verification": {
+        "citation_in_scope": true,
+        "evidence_match": "partial",
+        "overlap": 1.0,
+        "options_valid": true,
+        "notes": [
+          "Dẫn chứng khớp một phần (100%), không phải nguyên văn."
+        ]
+      }
+    },
+    {
+      "question": "Điều gì giúp LLM trở thành một nền chung cho nhiều ứng dụng?",
+      "options": [
+        "Nó có thể học từ dữ liệu",
+        "Nó được luyện trên hàng nghìn tỷ mảnh chữ",
+        "Nó sử dụng công nghệ blockchain",
+        "Nó có khả năng tự học"
+      ],
+      "answer_index": 1,
+      "explanation": "LLM được luyện trên hàng nghìn tỷ mảnh chữ để học cách đoán mảnh chữ tiếp theo trong ngữ cảnh.",
+      "citation_ref": "Trang 10",
+      "evidence_quote": "được luyện trên hàng nghìn tỷ mảnh chữ để học cách đoán mảnh chữ tiếp theo trong ngữ cảnh.",
+      "verification": {
+        "citation_in_scope": true,
+        "evidence_match": "exact",
+        "overlap": 1.0,
+        "options_valid": true,
+        "notes": []
+      }
+    },
+    {
+      "question": "Mô hình nào là sản phẩm đầu tiên phổ biến mà người dùng có thể trải nghiệm?",
+      "options": [
+        "GPT-3",
+        "ImageNet",
+        "ChatGPT",
+        "Transformer"
+      ],
+      "answer_index": 2,
+      "explanation": "ChatGPT xuất hiện như một trải nghiệm đại chúng cho người dùng.",
+      "citation_ref": "Trang 9",
+      "evidence_quote": "ChatGPT xuất hiện như một trải nghiệm đại chúng.",
+      "verification": {
+        "citation_in_scope": true,
+        "evidence_match": "exact",
+        "overlap": 1.0,
+        "options_valid": true,
+        "notes": []
+      }
+    },
+    {
+      "question": "Mô hình nào có khả năng tự lập kế hoạch và thực hiện nhiều bước?",
+      "options": [
+        "Discriminative AI",
+        "Generative AI",
+        "Agentic AI",
+        "LLM"
+      ],
+      "answer_index": 2,
+      "explanation": "Agentic AI có khả năng nhận mục tiêu rồi tự làm nhiều bước: lập kế hoạch, dùng công cụ, hành động.",
+      "citation_ref": "Trang 4",
+      "evidence_quote": "Agentic AI nhận mục tiêu rồi tự làm nhiều bước: lập kế hoạch, dùng công cụ, hành động.",
+      "verification": {
+        "citation_in_scope": true,
+        "evidence_match": "exact",
+        "overlap": 1.0,
+        "options_valid": true,
+        "notes": []
+      }
+    },
+    {
+      "question": "Một trong những vấn đề chính mà LLM gặp phải là gì?",
+      "options": [
+        "Thiếu dữ liệu",
+        "Không hiểu ngữ cảnh",
+        "Bong bóng thời gian",
+        "Không thể sinh nội dung"
+      ],
+      "answer_index": 2,
+      "explanation": "Model bị 'đóng băng' tại ngày ngừng đọc, điều này gọi là bong bóng thời gian.",
+      "citation_ref": "Trang 20",
+      "evidence_quote": "Model bị 'đóng băng' tại ngày ngừng đọc.",
+      "verification": {
+        "citation_in_scope": true,
+        "evidence_match": "exact",
+        "overlap": 1.0,
+        "options_valid": true,
+        "notes": []
+      }
+    },
+    {
+      "question": "Yếu tố nào ảnh hưởng đến chi phí khi gọi API của LLM?",
+      "options": [
+        "Số lượng từ trong prompt",
+        "Thời gian phản hồi",
+        "Số lượng người dùng",
+        "Loại mô hình"
+      ],
+      "answer_index": 0,
+      "explanation": "Chi phí mỗi lần gọi API phụ thuộc vào số lượng token trong input và output.",
+      "citation_ref": "Trang 27",
+      "evidence_quote": "Input tokens + Output tokens = Chi phí mỗi lần gọi.",
+      "verification": {
+        "citation_in_scope": true,
+        "evidence_match": "exact",
+        "overlap": 1.0,
+        "options_valid": true,
+        "notes": []
+      }
+    },
+    {
+      "question": "Cách nào giúp model LLM cải thiện khả năng suy luận?",
+      "options": [
+        "Tăng số lượng tham số",
+        "Sử dụng nhiều dữ liệu hơn",
+        "Chain-of-Thought",
+        "Thay đổi kiến trúc"
+      ],
+      "answer_index": 2,
+      "explanation": "Chain-of-Thought giúp model suy luận tốt hơn bằng cách cho nó viết nháp từng bước.",
+      "citation_ref": "Trang 22",
+      "evidence_quote": "Chain-of-Thought: chỉ thêm 'giấy nháp', từ sai thành đúng.",
+      "verification": {
+        "citation_in_scope": true,
+        "evidence_match": "exact",
+        "overlap": 1.0,
+        "options_valid": true,
+        "notes": []
+      }
+    },
+    {
+      "question": "Điều gì cần thiết để quản lý sự chú ý trong LLM?",
+      "options": [
+        "Giữ context sạch",
+        "Tăng số lượng token",
+        "Giảm thời gian phản hồi",
+        "Sử dụng nhiều mô hình"
+      ],
+      "answer_index": 0,
+      "explanation": "Context rác dẫn đến attention rác, vì vậy cần giữ context sạch để quản lý sự chú ý.",
+      "citation_ref": "Trang 16",
+      "evidence_quote": "Context rác = attention rác.",
+      "verification": {
+        "citation_in_scope": true,
+        "evidence_match": "exact",
+        "overlap": 1.0,
+        "options_valid": true,
+        "notes": []
+      }
+    }
+  ]
+}

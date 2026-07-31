@@ -1,0 +1,48 @@
+{
+  "run_at_utc": "20260730T124418Z",
+  "document": "[Slide] d1-slide-hackathon",
+  "refs": [
+    "Trang 1",
+    "Trang 2",
+    "Trang 3",
+    "Trang 4",
+    "Trang 5",
+    "Trang 6",
+    "Trang 7",
+    "Trang 8",
+    "Trang 9",
+    "Trang 10"
+  ],
+  "model": "openai/gpt-4o-mini",
+  "path": "low_confidence",
+  "status": "insufficient_evidence",
+  "reason": "Tài liệu chỉ cung cấp thông tin cơ bản về AI và LLM, không đủ để tạo ra 10 câu hỏi phân tích tình huống.",
+  "n_questions": 0,
+  "pass_rate": 0.0,
+  "context_chars": 4380,
+  "usage": {
+    "prompt_tokens": 2078,
+    "completion_tokens": 54,
+    "total_tokens": 2132,
+    "cost": 0.0003441,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.0003441,
+      "upstream_inference_prompt_cost": 0.0003117,
+      "upstream_inference_completions_cost": 3.24e-05
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "note": "",
+  "questions": []
+}
