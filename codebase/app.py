@@ -1,4 +1,4 @@
-"""VLearn Study Buddy — Streamlit interface backed by the slide-only quiz service.
+"""Vlearn Quiz — Streamlit interface backed by the slide-only quiz service.
 
 Giao diện: phong cách hiện đại, tinh gọn, bo góc mềm — nav nổi trên nền sáng,
 panel cấu hình dạng thẻ, câu hỏi dạng card, và ba trang Ôn tập · Hỏi đáp · Tiến độ.
@@ -8,6 +8,7 @@ Toàn bộ luồng dữ liệu và lời gọi API giữ nguyên như trước.
 from __future__ import annotations
 
 import os
+import re
 import sys
 from datetime import datetime
 from html import escape
@@ -26,10 +27,10 @@ from codebase.extract_slides import extract_pages_from_bytes
 from codebase.quiz_ai import ChatRequest, OpenRouterClient, QuizRequest
 
 
-load_dotenv(Path(__file__).with_name(".env"))
+load_dotenv(Path(__file__).with_name(".env"), override=True)
 
 st.set_page_config(
-    page_title="VLearn Study Buddy",
+    page_title="Vlearn Quiz",
     page_icon="📝",
     layout="wide",
     initial_sidebar_state="collapsed",
@@ -39,239 +40,826 @@ st.set_page_config(
 # độ bo góc thì sửa đúng một chỗ này.
 CSS = """
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap');
 
 :root {
-  --bg:#f5f6fb;
-  --surface:#ffffff;
-  --surface-2:#f3f5fa;
-  --text:#171a23;
-  --text-2:#4b5266;
-  --muted:#8c93a6;
-  --line:#e9ebf4;
-  --line-strong:#cdd3e4;
+  --bg: #f8fafc;
+  --surface: #ffffff;
+  --surface-2: #f1f5f9;
+  --surface-hover: #e2e8f0;
 
-  --primary:#5457e5;
-  --primary-600:#4447cd;
-  --primary-tint:#eeefff;
+  --text: #0f172a;
+  --text-2: #334155;
+  --muted: #64748b;
+  --line: #e2e8f0;
+  --line-strong: #cbd5e1;
 
-  --success:#0f9a5c;
-  --success-tint:#e8f8f0;
-  --danger:#dc4b52;
-  --danger-tint:#fdeeef;
+  --primary: #6366f1;
+  --primary-hover: #4f46e5;
+  --primary-600: #4338ca;
+  --primary-tint: #e0e7ff;
+  --primary-glow: rgba(99, 102, 241, 0.15);
 
-  --r-sm:12px; --r-md:16px; --r-lg:20px; --r-xl:26px; --r-full:999px;
-  --sh-xs:0 1px 2px rgba(23,26,35,.05);
-  --sh-sm:0 4px 14px -6px rgba(23,26,35,.14);
-  --sh-md:0 18px 40px -22px rgba(23,26,35,.35);
+  --success: #10b981;
+  --success-tint: #ecfdf5;
+  --success-line: #a7f3d0;
 
-  --font:'Inter',system-ui,-apple-system,sans-serif;
-  --display:'Plus Jakarta Sans',var(--font);
+  --danger: #f43f5e;
+  --danger-tint: #fff1f2;
+  --danger-line: #fecdd3;
+
+  --r-sm: 10px;
+  --r-md: 14px;
+  --r-lg: 18px;
+  --r-xl: 24px;
+  --r-full: 9999px;
+
+  --sh-xs: 0 1px 3px rgba(15, 23, 42, 0.05), 0 1px 2px rgba(15, 23, 42, 0.03);
+  --sh-sm: 0 4px 12px -2px rgba(15, 23, 42, 0.06), 0 2px 6px -1px rgba(15, 23, 42, 0.03);
+  --sh-md: 0 12px 28px -6px rgba(15, 23, 42, 0.09), 0 4px 10px -2px rgba(15, 23, 42, 0.04);
+  --sh-lg: 0 20px 32px -8px rgba(99, 102, 241, 0.12), 0 8px 16px -4px rgba(15, 23, 42, 0.04);
+
+  --font: 'Inter', system-ui, -apple-system, sans-serif;
+  --display: 'Plus Jakarta Sans', var(--font);
 }
 
-html, body, [class*="css"], .stApp { font-family:var(--font); }
-.stApp { background:var(--bg); color:var(--text); }
-.block-container { max-width:1200px; padding:0 2rem 3rem; }
-section[data-testid="stSidebar"] { display:none; }
-#MainMenu, footer, header[data-testid="stHeader"] { visibility:hidden; height:0; }
-h1,h2,h3,h4 { font-family:var(--display); font-weight:800!important; letter-spacing:-.02em; color:var(--text); }
-h1 { font-size:30px!important; line-height:1.2; margin:0 0 6px!important; }
-.lede { color:var(--text-2); font-size:14.5px; line-height:1.6; margin:0 0 22px; max-width:62ch; }
-::selection { background:var(--primary-tint); }
+html, body, [class*="css"], .stApp {
+  font-family: var(--font);
+  background: var(--bg);
+  background-image: 
+    radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.06) 0px, transparent 50%),
+    radial-gradient(at 100% 100%, rgba(139, 92, 246, 0.05) 0px, transparent 50%),
+    radial-gradient(at 50% 50%, rgba(241, 245, 249, 0.5) 0px, transparent 100%);
+  background-attachment: fixed;
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+}
 
-/* ───────── thanh nav nổi ───────── */
+.block-container {
+  max-width: 1240px;
+  padding: 0.5rem 2rem 3rem;
+}
+
+section[data-testid="stSidebar"] { display: none; }
+#MainMenu, footer, header[data-testid="stHeader"] { visibility: hidden; height: 0; }
+
+h1, h2, h3, h4 {
+  font-family: var(--display);
+  font-weight: 800 !important;
+  letter-spacing: -0.025em;
+  color: var(--text);
+}
+
+h1 {
+  font-size: 32px !important;
+  line-height: 1.2;
+  margin: 0 0 8px !important;
+  background: linear-gradient(135deg, #0f172a 30%, #334155 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.lede {
+  color: var(--text-2);
+  font-size: 15px;
+  line-height: 1.6;
+  margin: 0 0 24px;
+  max-width: 64ch;
+}
+
+::selection {
+  background: var(--primary-tint);
+  color: var(--primary-600);
+}
+
+/* ───────── Navbar ───────── */
 div[class*="st-key-navbar"] {
-  background:var(--surface); border:1px solid var(--line); border-radius:var(--r-xl);
-  box-shadow:var(--sh-sm); padding:10px 18px; margin:10px 0 26px;
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--line);
+  border-radius: var(--r-xl);
+  box-shadow: var(--sh-sm);
+  padding: 10px 20px;
+  margin: 10px 0 28px;
+  transition: all 0.25s ease;
 }
-.brand { display:flex; align-items:center; gap:11px; }
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
 .brand-mark {
-  width:38px; height:38px; border-radius:13px; display:grid; place-items:center; flex:none;
-  color:#fff; font-family:var(--display); font-weight:800; font-size:17px;
-  background:linear-gradient(140deg,#6d6ff0,#4a4dd6); box-shadow:0 6px 14px -6px rgba(84,87,229,.9);
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+  flex: none;
+  color: #ffffff;
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: 18px;
+  background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+  box-shadow: 0 8px 18px -4px rgba(99, 102, 241, 0.45);
+  transition: transform 0.2s ease;
 }
-.brand-title { font-family:var(--display); font-weight:800; font-size:15.5px; line-height:1.25; letter-spacing:-.01em; }
-.brand-sub { color:var(--muted); font-size:11.5px; }
+
+.brand:hover .brand-mark {
+  transform: scale(1.05) rotate(-2deg);
+}
+
+.brand-title {
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: 16px;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  color: var(--text);
+}
+
+.brand-sub {
+  color: var(--muted);
+  font-size: 11.5px;
+  font-weight: 500;
+}
 
 div[class*="st-key-nav_"] button {
-  width:100%!important; border:none!important; box-shadow:none!important;
-  background:transparent!important; color:var(--text-2)!important;
-  font-weight:600!important; font-size:14px!important;
-  padding:9px 6px!important; border-radius:var(--r-full)!important;
+  width: 100% !important;
+  border: none !important;
+  box-shadow: none !important;
+  background: transparent !important;
+  color: var(--text-2) !important;
+  font-weight: 600 !important;
+  font-size: 14px !important;
+  padding: 9px 12px !important;
+  border-radius: var(--r-full) !important;
+  transition: all 0.2s ease !important;
 }
-div[class*="st-key-nav_"] button:hover { background:var(--surface-2)!important; color:var(--text)!important; }
+
+div[class*="st-key-nav_"] button:hover {
+  background: var(--surface-2) !important;
+  color: var(--text) !important;
+  transform: translateY(-1px);
+}
+
 div[class*="st-key-nav_quiz_on"] button,
 div[class*="st-key-nav_chat_on"] button,
 div[class*="st-key-nav_progress_on"] button {
-  background:var(--primary-tint)!important; color:var(--primary)!important; font-weight:700!important;
+  background: var(--primary-tint) !important;
+  color: var(--primary) !important;
+  font-weight: 700 !important;
+  box-shadow: 0 2px 8px rgba(99, 102, 241, 0.15) !important;
 }
+
 div[class*="st-key-nav_help"] button {
-  border:1px solid var(--line)!important; color:var(--text-2)!important; background:var(--surface)!important;
+  border: 1px solid var(--line) !important;
+  color: var(--text-2) !important;
+  background: var(--surface) !important;
 }
-div[class*="st-key-nav_help"] button:hover { border-color:var(--primary)!important; color:var(--primary)!important; background:var(--surface)!important; }
 
-/* ───────── panel cấu hình ───────── */
+div[class*="st-key-nav_help"] button:hover {
+  border-color: var(--primary) !important;
+  color: var(--primary) !important;
+  background: var(--surface) !important;
+  box-shadow: var(--sh-xs) !important;
+}
+
+/* ───────── Side Panel ───────── */
 div[class*="st-key-sidepanel"] {
-  background:var(--surface); border:1px solid var(--line); border-radius:var(--r-xl);
-  box-shadow:var(--sh-xs); padding:22px 20px 24px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--r-xl);
+  box-shadow: var(--sh-sm);
+  padding: 24px 22px;
+  transition: all 0.2s ease;
 }
-.step { display:flex; align-items:center; gap:9px; font-size:13px; font-weight:700;
-  color:var(--text); margin:0 0 14px; font-family:var(--display); }
-.step-num { width:22px; height:22px; border-radius:8px; flex:none; display:grid; place-items:center;
-  background:var(--primary-tint); color:var(--primary); font-size:12px; font-weight:800; }
-.range-ends { display:flex; justify-content:space-between; margin:-2px 0 -6px; }
-.range-ends span { font-size:11.5px; font-weight:700; color:var(--primary);
-  background:var(--primary-tint); border-radius:var(--r-full); padding:2px 10px; }
-.summary { font-size:12px; color:var(--muted); margin:10px 0 2px; }
-.soft-rule { height:1px; background:var(--line); margin:22px 0; border:0; }
-.side-note { font-size:12.5px; color:var(--text-2); line-height:1.6;
-  background:var(--surface-2); border-radius:var(--r-md); padding:12px 14px; }
 
-/* ───────── form ───────── */
+.step {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13.5px;
+  font-weight: 700;
+  color: var(--text);
+  margin: 0 0 16px;
+  font-family: var(--display);
+}
+
+.step-num {
+  width: 24px;
+  height: 24px;
+  border-radius: 8px;
+  flex: none;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(135deg, #6366f1, #4f46e5);
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 800;
+  box-shadow: 0 4px 10px -2px rgba(99, 102, 241, 0.35);
+}
+
+.range-ends {
+  display: flex;
+  justify-content: space-between;
+  margin: -2px 0 -6px;
+}
+
+.range-ends span {
+  font-size: 11.5px;
+  font-weight: 700;
+  color: var(--primary-600);
+  background: var(--primary-tint);
+  border-radius: var(--r-full);
+  padding: 3px 11px;
+}
+
+.summary {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--muted);
+  margin: 12px 0 2px;
+  line-height: 1.4;
+}
+
+.soft-rule {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--line), transparent);
+  margin: 22px 0;
+  border: 0;
+}
+
+.side-note {
+  font-size: 13px;
+  color: var(--text-2);
+  line-height: 1.6;
+  background: var(--surface-2);
+  border-radius: var(--r-md);
+  padding: 12px 16px;
+  border-left: 3px solid var(--primary);
+}
+
+/* ───────── Form Controls ───────── */
 .stSelectbox label, .stRadio label, .stTextInput label, .stTextArea label, .stSlider label {
-  font-size:12.5px!important; font-weight:600!important; color:var(--text-2)!important; }
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  color: var(--text-2) !important;
+}
+
 .stSelectbox div[data-baseweb="select"] > div, .stTextInput input, .stTextArea textarea {
-  background:var(--surface-2)!important; border:1px solid transparent!important;
-  border-radius:var(--r-sm)!important; font-size:14px!important; color:var(--text)!important; }
+  background: var(--surface-2) !important;
+  border: 1px solid var(--line) !important;
+  border-radius: var(--r-sm) !important;
+  font-size: 14px !important;
+  color: var(--text) !important;
+  transition: all 0.2s ease !important;
+}
+
 .stSelectbox div[data-baseweb="select"] > div:hover, .stTextInput input:hover, .stTextArea textarea:hover {
-  border-color:var(--line)!important; }
-.stTextInput input:focus, .stTextArea textarea:focus { border-color:var(--primary)!important; background:var(--surface)!important; }
-div[data-baseweb="popover"] li { font-size:14px; }
+  border-color: var(--line-strong) !important;
+  background: var(--surface) !important;
+}
+
+.stTextInput input:focus, .stTextArea textarea:focus {
+  border-color: var(--primary) !important;
+  background: var(--surface) !important;
+  box-shadow: 0 0 0 3px var(--primary-glow) !important;
+}
+
+div[data-baseweb="popover"] li { font-size: 14px; }
+
 .stSlider [data-baseweb="slider"] div[role="slider"] {
-  background:var(--surface)!important; border:3px solid var(--primary)!important; box-shadow:var(--sh-xs)!important; }
+  background: var(--surface) !important;
+  border: 3px solid var(--primary) !important;
+  box-shadow: 0 2px 8px rgba(99, 102, 241, 0.3) !important;
+}
 
-/* mức độ: radio dựng lại thành hàng chip mềm */
-div[role="radiogroup"] { gap:7px!important; display:flex; flex-direction:column; }
+/* Radio Chip Selector */
+div[role="radiogroup"] {
+  gap: 8px !important;
+  display: flex;
+  flex-direction: column;
+}
+
 div[role="radiogroup"] > label {
-  width:100%; margin:0!important; padding:10px 13px; border-radius:var(--r-sm);
-  background:var(--surface-2); border:1px solid transparent; transition:.14s ease; }
-div[role="radiogroup"] > label:hover { border-color:var(--line); background:var(--surface); }
-div[role="radiogroup"] > label:has(input:checked) { background:var(--primary-tint); border-color:var(--primary); }
-div[role="radiogroup"] > label:has(input:checked) div[data-testid="stMarkdownContainer"] p { color:var(--primary); font-weight:600; }
-div[role="radiogroup"] div[data-testid="stMarkdownContainer"] p { font-size:14px!important; color:var(--text-2); }
+  width: 100%;
+  margin: 0 !important;
+  padding: 10px 14px;
+  border-radius: var(--r-sm);
+  background: var(--surface-2);
+  border: 1px solid var(--line);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+}
 
-/* ───────── nút ───────── */
+div[role="radiogroup"] > label:hover {
+  border-color: var(--primary-tint);
+  background: var(--surface);
+  transform: translateX(2px);
+}
+
+div[role="radiogroup"] > label:has(input:checked) {
+  background: var(--primary-tint);
+  border-color: var(--primary);
+  box-shadow: 0 2px 8px rgba(99, 102, 241, 0.1);
+}
+
+div[role="radiogroup"] > label:has(input:checked) div[data-testid="stMarkdownContainer"] p {
+  color: var(--primary-600);
+  font-weight: 700;
+}
+
+div[role="radiogroup"] div[data-testid="stMarkdownContainer"] p {
+  font-size: 13.5px !important;
+  color: var(--text-2);
+  transition: color 0.2s ease;
+}
+
+/* ───────── Buttons ───────── */
 .stButton > button {
-  border-radius:var(--r-sm); font-family:var(--font); font-weight:600; font-size:14px;
-  border:1px solid var(--line); background:var(--surface); color:var(--text);
-  padding:9px 16px; transition:.14s ease; box-shadow:var(--sh-xs); }
-.stButton > button:hover { border-color:var(--primary); color:var(--primary); transform:translateY(-1px); }
+  border-radius: var(--r-sm);
+  font-family: var(--font);
+  font-weight: 600;
+  font-size: 14px;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  color: var(--text);
+  padding: 10px 18px;
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: var(--sh-xs);
+}
+
+.stButton > button:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+  transform: translateY(-2px);
+  box-shadow: var(--sh-sm);
+}
+
 .stButton > button[kind="primary"] {
-  background:linear-gradient(140deg,#6467ee,#4a4dd6); color:#fff; border:none;
-  font-weight:700; padding:12px 18px; box-shadow:0 10px 22px -12px rgba(84,87,229,.95); }
-.stButton > button[kind="primary"]:hover { filter:brightness(1.05); color:#fff; }
+  background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+  color: #ffffff;
+  border: none;
+  font-weight: 700;
+  padding: 12px 20px;
+  box-shadow: 0 10px 24px -8px rgba(99, 102, 241, 0.6);
+}
+
+.stButton > button[kind="primary"]:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 28px -6px rgba(99, 102, 241, 0.7);
+  color: #ffffff !important;
+  filter: brightness(1.05);
+}
+
 .stButton > button:disabled, .stButton > button[kind="primary"]:disabled {
-  background:var(--surface-2); color:var(--muted); box-shadow:none; transform:none; border:1px solid var(--line); }
+  background: var(--surface-2) !important;
+  color: var(--muted) !important;
+  box-shadow: none !important;
+  transform: none !important;
+  border: 1px solid var(--line) !important;
+}
 
-/* ───────── thẻ câu hỏi ───────── */
+/* ───────── Question Cards ───────── */
 div[data-testid="stVerticalBlockBorderWrapper"]:has(.card-kicker) {
-  background:var(--surface); border:1px solid var(--line); border-radius:var(--r-lg);
-  box-shadow:var(--sh-xs); padding:6px 8px; margin-bottom:16px; }
-.card-kicker { display:inline-flex; align-items:center; font-size:11px; font-weight:700;
-  letter-spacing:.06em; text-transform:uppercase; color:var(--primary);
-  background:var(--primary-tint); border-radius:var(--r-full); padding:4px 11px; margin-bottom:12px; }
-.card-title { font-family:var(--display); font-weight:700; font-size:16.5px; line-height:1.45;
-  color:var(--text); margin-bottom:14px; }
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--r-lg);
+  box-shadow: var(--sh-sm);
+  padding: 16px 18px;
+  margin-bottom: 20px;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
 
-/* phương án chưa chọn: nút chiếm cả dòng, chữ căn trái như hàng đã khoá */
+div[data-testid="stVerticalBlockBorderWrapper"]:has(.card-kicker):hover {
+  box-shadow: var(--sh-md);
+  border-color: var(--line-strong);
+}
+
+.card-kicker {
+  display: inline-flex;
+  align-items: center;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--primary-600);
+  background: var(--primary-tint);
+  border-radius: var(--r-full);
+  padding: 5px 13px;
+  margin-bottom: 14px;
+}
+
+.card-title {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 17px;
+  line-height: 1.5;
+  color: var(--text);
+  margin-bottom: 16px;
+}
+
+/* Option Buttons (Unselected) */
 div[class*="st-key-opt_"] button {
-  width:100%!important; justify-content:flex-start!important; text-align:left!important;
-  font-weight:500!important; color:var(--text)!important;
-  background:var(--surface)!important; border:1.5px solid var(--line-strong)!important;
-  border-radius:var(--r-md); padding:13px 16px!important;
-  height:auto!important; min-height:0!important; box-shadow:none;
-  white-space:normal!important; line-height:1.5; }
-/* Nhãn nút bị Streamlit bọc trong một flex container tự căn giữa — ép về bên trái. */
+  width: 100% !important;
+  justify-content: flex-start !important;
+  text-align: left !important;
+  font-weight: 500 !important;
+  color: var(--text) !important;
+  background: var(--surface) !important;
+  border: 1.5px solid var(--line) !important;
+  border-radius: var(--r-md) !important;
+  padding: 14px 18px !important;
+  height: auto !important;
+  min-height: 0 !important;
+  box-shadow: var(--sh-xs) !important;
+  white-space: normal !important;
+  line-height: 1.5;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
 div[class*="st-key-opt_"] button > div,
 div[class*="st-key-opt_"] button div[data-testid="stMarkdownContainer"] {
-  width:100%!important; display:block!important;
-  justify-content:flex-start!important; text-align:left!important; }
+  width: 100% !important;
+  display: block !important;
+  justify-content: flex-start !important;
+  text-align: left !important;
+}
+
 div[class*="st-key-opt_"] button p {
-  width:100%!important; margin:0!important; text-align:left!important;
-  white-space:normal!important; overflow-wrap:anywhere; }
+  width: 100% !important;
+  margin: 0 !important;
+  text-align: left !important;
+  white-space: normal !important;
+  overflow-wrap: anywhere;
+}
+
 div[class*="st-key-opt_"] button:hover {
-  background:var(--primary-tint)!important; border-color:var(--primary)!important;
-  color:var(--text)!important; box-shadow:var(--sh-xs); transform:none; }
+  background: #f5f7ff !important;
+  border-color: var(--primary) !important;
+  color: var(--primary-600) !important;
+  box-shadow: 0 6px 20px -4px rgba(99, 102, 241, 0.18) !important;
+  transform: translateY(-2px) !important;
+}
 
-/* phương án đã khoá */
-.option-row { display:flex; align-items:center; gap:12px; padding:13px 16px; margin-bottom:8px;
-  border:1.5px solid var(--line-strong); border-radius:var(--r-md); background:var(--surface);
-  color:var(--text-2); font-size:14px; line-height:1.5; }
-.option-row .letter { width:26px; height:26px; flex:none; border-radius:9px; display:grid; place-items:center;
-  font-size:12px; font-weight:700; background:var(--surface-2); color:var(--text-2); }
-.option-row .mark { margin-left:auto; font-weight:700; font-size:15px; }
-.option-row.correct { background:var(--success-tint); border-color:var(--success); color:var(--success); }
-.option-row.correct .letter { background:var(--success); color:#fff; }
-.option-row.wrong { background:var(--danger-tint); border-color:var(--danger); color:var(--danger); }
-.option-row.wrong .letter { background:var(--danger); color:#fff; }
-.option-row.muted { opacity:.7; background:var(--surface-2); }
+/* Locked Option Rows */
+.option-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 18px;
+  margin-bottom: 10px;
+  border: 1.5px solid var(--line);
+  border-radius: var(--r-md);
+  background: var(--surface);
+  color: var(--text-2);
+  font-size: 14.5px;
+  line-height: 1.5;
+  transition: all 0.2s ease;
+}
 
-.verdict { display:inline-flex; align-items:center; font-size:13px; font-weight:700;
-  border-radius:var(--r-full); padding:5px 13px; margin:6px 0 10px; }
-.verdict.ok { background:var(--success-tint); color:var(--success); }
-.verdict.no { background:var(--danger-tint); color:var(--danger); }
-.explain { font-size:13.5px; color:var(--text-2); line-height:1.65;
-  background:var(--surface-2); border-radius:var(--r-md); padding:12px 14px; margin-bottom:10px; }
-.explain b { color:var(--text); }
-.cite { display:inline-flex; align-items:center; gap:6px; font-size:11.5px; font-weight:600;
-  color:var(--primary); background:var(--primary-tint); border-radius:var(--r-full); padding:5px 12px; }
+.option-row .letter {
+  width: 28px;
+  height: 28px;
+  flex: none;
+  border-radius: 9px;
+  display: grid;
+  place-items: center;
+  font-size: 12.5px;
+  font-weight: 800;
+  background: var(--surface-2);
+  color: var(--text-2);
+}
 
-/* ───────── banner điểm ───────── */
-.score-banner { display:flex; align-items:center; border-radius:var(--r-lg); padding:18px 22px;
-  background:linear-gradient(135deg,#5f62ea,#4548cf); box-shadow:0 16px 34px -20px rgba(84,87,229,1); }
-.score-banner .label { font-size:12px; font-weight:600; color:rgba(255,255,255,.75); letter-spacing:.04em; text-transform:uppercase; }
-.score-banner .value { font-family:var(--display); font-weight:800; font-size:22px; color:#fff; line-height:1.25; }
+.option-row .mark {
+  margin-left: auto;
+  font-weight: 800;
+  font-size: 16px;
+}
 
-/* ───────── trạng thái rỗng ───────── */
-.empty { border:1.5px dashed var(--line); border-radius:var(--r-xl); background:var(--surface);
-  padding:44px 32px; text-align:center; }
-.empty .icon { width:52px; height:52px; border-radius:18px; margin:0 auto 16px; display:grid; place-items:center;
-  background:var(--primary-tint); font-size:22px; }
-.empty .title { font-family:var(--display); font-weight:800; font-size:17px; margin-bottom:6px; }
-.empty .body { font-size:13.5px; color:var(--muted); max-width:44ch; margin:0 auto; line-height:1.65; }
+.option-row.correct {
+  background: var(--success-tint);
+  border-color: var(--success-line);
+  color: #065f46;
+}
 
-/* ───────── hỏi đáp ───────── */
-.msg { display:flex; flex-direction:column; margin-bottom:16px; }
-.msg.user { align-items:flex-end; }
-.msg.bot { align-items:flex-start; }
-.bubble { max-width:78%; padding:13px 17px; font-size:14px; line-height:1.65; border-radius:var(--r-lg); }
-.msg.user .bubble { background:linear-gradient(140deg,#6467ee,#4a4dd6); color:#fff;
-  border-bottom-right-radius:7px; box-shadow:0 10px 24px -16px rgba(84,87,229,1); }
-.msg.bot .bubble { background:var(--surface); border:1px solid var(--line); color:var(--text);
-  border-bottom-left-radius:7px; box-shadow:var(--sh-xs); }
-.cites { display:flex; gap:6px; flex-wrap:wrap; margin-top:8px; }
-div[data-testid="stChatInput"] { background:var(--surface); border-radius:var(--r-lg);
-  border:1px solid var(--line); box-shadow:var(--sh-xs); }
-div[data-testid="stChatInput"] textarea { font-size:14px; }
+.option-row.correct .letter {
+  background: var(--success);
+  color: #ffffff;
+}
 
-/* ───────── tiến độ ───────── */
-.stat-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-bottom:26px; }
-.stat { background:var(--surface); border:1px solid var(--line); border-radius:var(--r-lg);
-  padding:20px 22px; box-shadow:var(--sh-xs); }
-.stat .k { font-size:11.5px; font-weight:600; letter-spacing:.05em; text-transform:uppercase; color:var(--muted); margin-bottom:8px; }
-.stat .v { font-family:var(--display); font-weight:800; font-size:30px; line-height:1.1; letter-spacing:-.02em; }
-.table-card { background:var(--surface); border:1px solid var(--line); border-radius:var(--r-lg);
-  box-shadow:var(--sh-xs); overflow:hidden; }
-table.table { width:100%; border-collapse:collapse; font-size:13.5px; }
-table.table th { text-align:left; font-size:11px; font-weight:600; letter-spacing:.06em; text-transform:uppercase;
-  color:var(--muted); padding:13px 20px; background:var(--surface-2); }
-table.table td { padding:14px 20px; border-top:1px solid var(--line); color:var(--text-2); }
-table.table td:first-child { color:var(--text); font-weight:500; }
-table.table tbody tr:hover td { background:var(--surface-2); }
+.option-row.wrong {
+  background: var(--danger-tint);
+  border-color: var(--danger-line);
+  color: #9f1239;
+}
 
-/* ───────── hộp thoại & alert ───────── */
-div[data-testid="stDialog"] div[role="dialog"] { border-radius:var(--r-xl); box-shadow:var(--sh-md); border:1px solid var(--line); }
-div[data-testid="stAlert"] { border-radius:var(--r-md); border:1px solid var(--line); }
-.dialog-steps { display:flex; flex-direction:column; gap:12px; margin-bottom:4px; }
-.dialog-steps > div { display:flex; gap:12px; align-items:flex-start; font-size:14px; color:var(--text-2); line-height:1.6; }
-.dialog-steps .n { width:24px; height:24px; flex:none; border-radius:9px; display:grid; place-items:center;
-  background:var(--primary-tint); color:var(--primary); font-weight:800; font-size:12px; }
+.option-row.wrong .letter {
+  background: var(--danger);
+  color: #ffffff;
+}
 
-@media (max-width:900px) {
-  .block-container { padding:0 1rem 2rem; }
-  .stat-grid { grid-template-columns:1fr; }
-  .bubble { max-width:92%; }
-  div[class*="st-key-navbar"] { border-radius:var(--r-lg); }
+.option-row.muted {
+  opacity: 0.65;
+  background: var(--surface-2);
+}
+
+.verdict {
+  display: inline-flex;
+  align-items: center;
+  font-size: 13.5px;
+  font-weight: 700;
+  border-radius: var(--r-full);
+  padding: 6px 15px;
+  margin: 8px 0 12px;
+}
+
+.verdict.ok {
+  background: var(--success-tint);
+  color: #047857;
+  border: 1px solid var(--success-line);
+}
+
+.verdict.no {
+  background: var(--danger-tint);
+  color: #be123c;
+  border: 1px solid var(--danger-line);
+}
+
+.explain {
+  font-size: 14px;
+  color: var(--text-2);
+  line-height: 1.65;
+  background: var(--surface-2);
+  border-radius: var(--r-md);
+  padding: 14px 16px;
+  margin-bottom: 12px;
+}
+
+.explain b { color: var(--text); }
+
+.cite {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--primary-600);
+  background: var(--primary-tint);
+  border-radius: var(--r-full);
+  padding: 5px 14px;
+  box-shadow: 0 2px 6px rgba(99, 102, 241, 0.1);
+}
+
+/* Score Banner */
+.score-banner {
+  display: flex;
+  align-items: center;
+  border-radius: var(--r-lg);
+  padding: 20px 26px;
+  background: linear-gradient(135deg, #6366f1 0%, #4338ca 100%);
+  box-shadow: 0 18px 36px -12px rgba(99, 102, 241, 0.45);
+}
+
+.score-banner .label {
+  font-size: 12px;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.85);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.score-banner .value {
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: 24px;
+  color: #ffffff;
+  line-height: 1.25;
+}
+
+/* Empty States */
+.empty {
+  border: 2px dashed var(--line-strong);
+  border-radius: var(--r-xl);
+  background: var(--surface);
+  padding: 52px 36px;
+  text-align: center;
+  box-shadow: var(--sh-xs);
+}
+
+.empty .icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 20px;
+  margin: 0 auto 18px;
+  display: grid;
+  place-items: center;
+  background: var(--primary-tint);
+  font-size: 24px;
+  box-shadow: 0 6px 16px -4px rgba(99, 102, 241, 0.2);
+}
+
+.empty .title {
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: 18px;
+  margin-bottom: 8px;
+  color: var(--text);
+}
+
+.empty .body {
+  font-size: 14px;
+  color: var(--muted);
+  max-width: 46ch;
+  margin: 0 auto;
+  line-height: 1.65;
+}
+
+/* Chat Page */
+.msg {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 18px;
+}
+
+.msg.user { align-items: flex-end; }
+.msg.bot { align-items: flex-start; }
+
+.bubble {
+  max-width: 80%;
+  padding: 14px 18px;
+  font-size: 14.5px;
+  line-height: 1.65;
+  border-radius: 18px;
+}
+
+.msg.user .bubble {
+  background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+  color: #ffffff;
+  border-bottom-right-radius: 4px;
+  box-shadow: 0 10px 24px -8px rgba(99, 102, 241, 0.4);
+}
+
+.msg.bot .bubble {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  color: var(--text);
+  border-bottom-left-radius: 4px;
+  box-shadow: var(--sh-sm);
+}
+
+.cites {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-top: 8px;
+}
+
+div[data-testid="stChatInput"] {
+  background: var(--surface);
+  border-radius: var(--r-lg);
+  border: 1px solid var(--line);
+  box-shadow: var(--sh-sm);
+  transition: all 0.2s ease;
+}
+
+div[data-testid="stChatInput"]:focus-within {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px var(--primary-glow);
+}
+
+div[data-testid="stChatInput"] textarea { font-size: 14.5px; }
+
+/* Progress Page */
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 28px;
+}
+
+.stat {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--r-lg);
+  padding: 22px 24px;
+  box-shadow: var(--sh-sm);
+  transition: all 0.2s ease;
+  border-top: 3px solid var(--primary);
+}
+
+.stat:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--sh-md);
+}
+
+.stat .k {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+
+.stat .v {
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: 32px;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--text);
+}
+
+.table-card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--r-lg);
+  box-shadow: var(--sh-sm);
+  overflow: hidden;
+}
+
+table.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+table.table th {
+  text-align: left;
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+  padding: 15px 22px;
+  background: var(--surface-2);
+}
+
+table.table td {
+  padding: 16px 22px;
+  border-top: 1px solid var(--line);
+  color: var(--text-2);
+}
+
+table.table td:first-child {
+  color: var(--text);
+  font-weight: 600;
+}
+
+table.table tbody tr:hover td {
+  background: var(--surface-2);
+}
+
+/* Dialog & Alerts */
+div[data-testid="stDialog"] div[role="dialog"] {
+  border-radius: var(--r-xl);
+  box-shadow: var(--sh-lg);
+  border: 1px solid var(--line);
+}
+
+div[data-testid="stAlert"] {
+  border-radius: var(--r-md);
+  border: 1px solid var(--line);
+}
+
+.dialog-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: 6px;
+}
+
+.dialog-steps > div {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  font-size: 14.5px;
+  color: var(--text-2);
+  line-height: 1.6;
+}
+
+.dialog-steps .n {
+  width: 26px;
+  height: 26px;
+  flex: none;
+  border-radius: 10px;
+  display: grid;
+  place-items: center;
+  background: var(--primary-tint);
+  color: var(--primary-600);
+  font-weight: 800;
+  font-size: 13px;
+}
+
+@media (max-width: 900px) {
+  .block-container { padding: 0.5rem 1rem 2rem; }
+  .stat-grid { grid-template-columns: 1fr; }
+  .bubble { max-width: 92%; }
+  div[class*="st-key-navbar"] { border-radius: var(--r-lg); }
 }
 </style>
 """
@@ -315,7 +903,7 @@ def mcq_indexes(questions: list[dict]) -> list[int]:
 # --------------------------------------------------------------------------
 
 
-@st.dialog("Chào mừng đến với VLearn")
+@st.dialog("Chào mừng đến với Vlearn Quiz")
 def onboarding_dialog() -> None:
     st.markdown(
         "<div class='dialog-steps'>"
@@ -342,7 +930,7 @@ with st.container(key="navbar"):
     nav_cols = st.columns([3.3, 0.95, 1.0, 0.95, 3.1, 1.25], vertical_alignment="center")
     nav_cols[0].markdown(
         "<div class='brand'><div class='brand-mark'>V</div><div>"
-        "<div class='brand-title'>VLearn Study Buddy</div>"
+        "<div class='brand-title'>Vlearn Quiz</div>"
         "<div class='brand-sub'>Ôn tập có căn cứ từ slide</div></div></div>",
         unsafe_allow_html=True,
     )
@@ -390,10 +978,8 @@ if side_col is not None:
         else:
             page_numbers = sorted(pages)
             st.markdown(
-                "<div style='font-size:12.5px;font-weight:600;color:var(--text-2);"
-                "margin:16px 0 6px;'>Phạm vi slide</div>"
-                f"<div class='range-ends'><span>{page_numbers[0]}</span>"
-                f"<span>{page_numbers[-1]}</span></div>",
+                "<div style='font-size:13px;font-weight:600;color:var(--text-2);"
+                "margin:16px 0 6px;'>Phạm vi slide</div>",
                 unsafe_allow_html=True,
             )
             first_page, last_page = st.select_slider(
@@ -405,7 +991,7 @@ if side_col is not None:
             current_pages = selected_pages(pages, first_page, last_page)
             st.markdown(
                 f"<div class='summary'>{len(current_pages)} trang có nội dung · "
-                f"{escape(source_name)}</div>",
+                f"Trang {first_page} – {last_page} · {escape(source_name)}</div>",
                 unsafe_allow_html=True,
             )
             context = build_context(current_pages, first_page, last_page)
@@ -501,7 +1087,7 @@ def sync_history_score() -> None:
 
 
 if generate:
-    with st.spinner("Đang tạo quiz từ slide…"):
+    with st.spinner("🧠 AI đang suy nghĩ & tạo quiz từ slide…"):
         create_quiz(context, question_count, difficulty, extra_request)
 
 
@@ -547,43 +1133,44 @@ def render_question(index: int, question: dict) -> None:
         chosen = answers.get(index)
         correct = question["correct_answer"]
 
-        if chosen is None:
-            # Chưa chọn: mỗi phương án là một nút. Chọn xong là khoá, không sửa lại.
-            for option_index, option in enumerate(options):
-                letter = option_letter(option_index)
+        for option_index, option in enumerate(options):
+            letter = option_letter(option_index)
+            clean_opt = option.strip()
+            while re.match(r"^[A-Da-d][.\):\s\-]+\s*", clean_opt):
+                clean_opt = re.sub(r"^[A-Da-d][.\):\s\-]+\s*", "", clean_opt)
+
+            if chosen is None:
                 if st.button(
-                    f"{letter}.  {option}",
+                    f"{letter}.  {clean_opt}",
                     key=f"opt_{index}_{option_index}",
                     use_container_width=True,
                 ):
                     answers[index] = letter
                     sync_history_score()
                     st.rerun()
-            return
-
-        for option_index, option in enumerate(options):
-            letter = option_letter(option_index)
-            if letter == correct:
-                state, mark = "correct", "✓"
-            elif letter == chosen:
-                state, mark = "wrong", "✕"
             else:
-                state, mark = "muted", ""
+                if letter == correct:
+                    state, mark = "correct", "✓"
+                elif letter == chosen:
+                    state, mark = "wrong", "✕"
+                else:
+                    state, mark = "muted", ""
+                st.markdown(
+                    f"<div class='option-row {state}'><span class='letter'>{letter}</span>"
+                    f"<span style='flex:1;'>{escape(clean_opt)}</span><span class='mark'>{mark}</span></div>",
+                    unsafe_allow_html=True,
+                )
+
+        if chosen is not None:
+            is_correct = chosen == correct
+            verdict = "Đúng." if is_correct else f"Chưa đúng. Đáp án đúng là {correct}."
+            verdict_class = "ok" if is_correct else "no"
             st.markdown(
-                f"<div class='option-row {state}'><span class='letter'>{letter}</span>"
-                f"<span style='flex:1;'>{escape(option)}</span><span class='mark'>{mark}</span></div>",
+                f"<div class='verdict {verdict_class}'>{verdict}</div>"
+                f"<div class='explain'><b>Giải thích:</b> {escape(question.get('explanation', ''))}</div>"
+                f"<span class='cite'>{escape(question['slide_reference'])}</span>",
                 unsafe_allow_html=True,
             )
-
-        is_correct = chosen == correct
-        verdict = "Đúng." if is_correct else f"Chưa đúng. Đáp án đúng là {correct}."
-        verdict_class = "ok" if is_correct else "no"
-        st.markdown(
-            f"<div class='verdict {verdict_class}'>{verdict}</div>"
-            f"<div class='explain'><b>Giải thích:</b> {escape(question.get('explanation', ''))}</div>"
-            f"<span class='cite'>{escape(question['slide_reference'])}</span>",
-            unsafe_allow_html=True,
-        )
 
 
 def render_quiz_page() -> None:
@@ -623,7 +1210,7 @@ def render_quiz_page() -> None:
             unsafe_allow_html=True,
         )
         if action.button("Tạo bộ khác", key="regenerate", use_container_width=True):
-            with st.spinner("Đang tạo quiz từ slide…"):
+            with st.spinner("🧠 AI đang suy nghĩ & tạo quiz từ slide…"):
                 create_quiz(context, question_count, difficulty, extra_request)
             st.rerun()
         st.write("")
@@ -646,12 +1233,6 @@ def render_chat_page() -> None:
     )
 
     history = st.session_state.setdefault("chat", [])
-    if not history:
-        st.markdown(
-            "<div class='msg bot'><div class='bubble'>Chào bạn! Chọn phạm vi slide bên trái "
-            "rồi đặt câu hỏi nhé.</div></div>",
-            unsafe_allow_html=True,
-        )
     for message in history:
         role = "user" if message["role"] == "user" else "bot"
         cites = "".join(
@@ -674,18 +1255,20 @@ def render_chat_page() -> None:
     elif not os.getenv("OPENROUTER_API_KEY", ""):
         response = {"content": "Thiếu OPENROUTER_API_KEY trong codebase/.env.", "citations": []}
     else:
-        try:
-            result = OpenRouterClient().answer(
-                ChatRequest(slide_context=context, question=question),
-                history=history[-6:],
-            )
-            response = {"content": result["answer"], "citations": result["citations"]}
-        except (RuntimeError, ValueError) as error:
-            response = {"content": f"Không thể trả lời lúc này: {error}", "citations": []}
+        with st.spinner("🧠 AI đang suy nghĩ câu trả lời…"):
+            try:
+                result = OpenRouterClient().answer(
+                    ChatRequest(slide_context=context, question=question),
+                    history=history[-6:],
+                )
+                response = {"content": result["answer"], "citations": result["citations"]}
+            except (RuntimeError, ValueError) as error:
+                response = {"content": f"Không thể trả lời lúc này: {error}", "citations": []}
 
     history.append({"role": "assistant", **response})
     st.session_state["chat"] = history
     st.rerun()
+
 
 
 # --------------------------------------------------------------------------
