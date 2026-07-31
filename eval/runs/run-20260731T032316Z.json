@@ -1,0 +1,188 @@
+{
+  "run_at_utc": "20260731T032316Z",
+  "document": "d1-slide-hackathon",
+  "refs": [
+    "Trang 1",
+    "Trang 2",
+    "Trang 3",
+    "Trang 4",
+    "Trang 5",
+    "Trang 6",
+    "Trang 7",
+    "Trang 8",
+    "Trang 9",
+    "Trang 10",
+    "Trang 11",
+    "Trang 12",
+    "Trang 13",
+    "Trang 14",
+    "Trang 15",
+    "Trang 16",
+    "Trang 17",
+    "Trang 18",
+    "Trang 19",
+    "Trang 20",
+    "Trang 21",
+    "Trang 22",
+    "Trang 23",
+    "Trang 24",
+    "Trang 25",
+    "Trang 26",
+    "Trang 27",
+    "Trang 28",
+    "Trang 29"
+  ],
+  "model": "openai/gpt-4o-mini",
+  "path": "happy",
+  "status": "ok",
+  "reason": "",
+  "n_questions": 6,
+  "pass_rate": 1.0,
+  "context_chars": 16945,
+  "usage": {
+    "prompt_tokens": 6548,
+    "completion_tokens": 837,
+    "total_tokens": 7385,
+    "cost": 0.0014844,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.0014844,
+      "upstream_inference_prompt_cost": 0.0009822,
+      "upstream_inference_completions_cost": 0.0005022
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "note": "",
+  "questions": [
+    {
+      "question": "Mô hình nào dưới đây không phải là một phần của AI?",
+      "options": [
+        "Generative AI",
+        "Discriminative AI",
+        "Agentic AI",
+        "Data Mining"
+      ],
+      "answer_index": 3,
+      "explanation": "Data Mining không được đề cập như một phần của AI trong tài liệu, trong khi Generative AI, Discriminative AI và Agentic AI đều là các nhóm AI chính.",
+      "citation_ref": "Trang 4",
+      "evidence_quote": "Ba nhóm AI chính: phân loại · sinh nội dung · hành động",
+      "verification": {
+        "citation_in_scope": true,
+        "evidence_match": "exact",
+        "overlap": 1.0,
+        "options_valid": true,
+        "notes": []
+      }
+    },
+    {
+      "question": "Tại sao dữ liệu tốt hơn có thể đánh bại thuật toán thông minh hơn?",
+      "options": [
+        "Vì dữ liệu lớn hơn",
+        "Vì thuật toán không đủ mạnh",
+        "Vì dữ liệu có chất lượng cao",
+        "Vì thuật toán không được tối ưu"
+      ],
+      "answer_index": 2,
+      "explanation": "Dữ liệu chất lượng cao giúp cải thiện độ chính xác của mô hình, như đã nêu trong tài liệu về ImageNet.",
+      "citation_ref": "Trang 7",
+      "evidence_quote": "đôi khi dữ liệu tốt hơn đánh bại thuật toán khôn hơn.",
+      "verification": {
+        "citation_in_scope": true,
+        "evidence_match": "exact",
+        "overlap": 1.0,
+        "options_valid": true,
+        "notes": []
+      }
+    },
+    {
+      "question": "Điều gì xảy ra khi context quá dài trong mô hình?",
+      "options": [
+        "Mô hình sẽ hoạt động tốt hơn",
+        "Mô hình sẽ bỏ sót thông tin",
+        "Mô hình sẽ không hoạt động",
+        "Mô hình sẽ nhanh hơn"
+      ],
+      "answer_index": 1,
+      "explanation": "Khi context quá dài, mô hình có thể 'quên' thông tin ở giữa, dẫn đến việc bỏ sót thông tin quan trọng.",
+      "citation_ref": "Trang 14",
+      "evidence_quote": "đồ ở giữa bàn dễ bị bỏ sót — đặt điều quan trọng ở giữa một prompt rất dài, model có thể 'quên' mất.",
+      "verification": {
+        "citation_in_scope": true,
+        "evidence_match": "exact",
+        "overlap": 1.0,
+        "options_valid": true,
+        "notes": []
+      }
+    },
+    {
+      "question": "Mô hình LLM được tạo ra như thế nào?",
+      "options": [
+        "Chỉ cần đọc nhiều tài liệu",
+        "Được chỉ dẫn và uốn nắn",
+        "Chỉ cần học từ dữ liệu",
+        "Không cần bất kỳ bước nào"
+      ],
+      "answer_index": 1,
+      "explanation": "Mô hình LLM cần được chỉ dẫn và uốn nắn qua các bước như SFT và RLHF để trở thành một trợ lý hiệu quả.",
+      "citation_ref": "Trang 18",
+      "evidence_quote": "học theo phản hồi con người, an toàn và dễ chịu hơn.",
+      "verification": {
+        "citation_in_scope": true,
+        "evidence_match": "exact",
+        "overlap": 1.0,
+        "options_valid": true,
+        "notes": []
+      }
+    },
+    {
+      "question": "Mô hình nào là bước ngoặt trong việc hiểu ngôn ngữ?",
+      "options": [
+        "GPT",
+        "BERT",
+        "Transformer",
+        "LLM"
+      ],
+      "answer_index": 2,
+      "explanation": "Transformer là bước ngoặt vì nó cho mô hình hiểu ngôn ngữ theo cách linh hoạt hơn, trở thành nền móng cho các mô hình ngôn ngữ sau này.",
+      "citation_ref": "Trang 8",
+      "evidence_quote": "Transformer là bước ngoặt vì nó cho mô hình hiểu ngôn ngữ theo cách linh hoạt hơn.",
+      "verification": {
+        "citation_in_scope": true,
+        "evidence_match": "exact",
+        "overlap": 1.0,
+        "options_valid": true,
+        "notes": []
+      }
+    },
+    {
+      "question": "Điều gì là cần thiết để một agent hoạt động hiệu quả?",
+      "options": [
+        "Chỉ cần mục tiêu",
+        "Có đủ dữ liệu",
+        "Có kế hoạch và công cụ",
+        "Không cần hành động"
+      ],
+      "answer_index": 2,
+      "explanation": "Một agent cần có kế hoạch và công cụ để thực hiện các hành động cần thiết nhằm đạt được mục tiêu.",
+      "citation_ref": "Trang 24",
+      "evidence_quote": "Agent = Goal + Reasoning + Tools + Memory + Action",
+      "verification": {
+        "citation_in_scope": true,
+        "evidence_match": "exact",
+        "overlap": 1.0,
+        "options_valid": true,
+        "notes": []
+      }
+    }
+  ]
+}

@@ -31,6 +31,14 @@ class AppSupportTests(unittest.TestCase):
 
         self.assertEqual(2, score)
 
+    def test_score_answers_ignores_essay_questions(self):
+        questions = [
+            {"correct_answer": "B"},
+            {"question_type": "essay", "sample_answer": "Nêu khái niệm."},
+        ]
+
+        self.assertEqual(1, score_answers(questions, {0: "B"}))
+
     def test_option_letter_maps_zero_based_index(self):
         self.assertEqual("C", option_letter(2))
 

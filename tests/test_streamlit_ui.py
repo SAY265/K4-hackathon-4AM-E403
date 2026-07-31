@@ -15,21 +15,20 @@ class StreamlitUiTests(unittest.TestCase):
         ).run()
 
         self.assertEqual([], list(app.exception))
-        self.assertTrue(
-            {
-                "Giải thích nhanh",
-                "Kiểm tra grounding",
-                "Thử guardrail",
-                "Tạo quiz 5 câu",
-            }.issubset({button.label for button in app.button}),
-        )
+        self.assertEqual(["Tạo quiz 5 câu"], [button.label for button in app.button])
         self.assertEqual(
             ["Hỏi về các trang đang chọn…"],
             [chat_input.placeholder for chat_input in app.chat_input],
         )
+        self.assertEqual([], list(app.get("file_uploader")))
+        self.assertEqual(["Bài giảng"], [selectbox.label for selectbox in app.selectbox])
         self.assertEqual(
-            ["Tải bài giảng từ máy"],
-            [uploader.label for uploader in app.get("file_uploader")],
+            ["Khái niệm", "Vận dụng", "Vận dụng cao"],
+            list(app.radio[0].options),
+        )
+        self.assertEqual(
+            ["Yêu cầu bổ sung (tuỳ chọn)"],
+            [text_input.label for text_input in app.text_input],
         )
 
 

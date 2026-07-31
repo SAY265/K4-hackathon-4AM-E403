@@ -73,4 +73,5 @@ def score_answers(
     return sum(
         answers.get(index) == question["correct_answer"]
         for index, question in enumerate(questions)
+        if question.get("question_type", "multiple_choice") == "multiple_choice"
     )

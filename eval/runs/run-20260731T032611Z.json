@@ -1,0 +1,188 @@
+{
+  "run_at_utc": "20260731T032611Z",
+  "document": "d1-slide-hackathon",
+  "refs": [
+    "Trang 1",
+    "Trang 2",
+    "Trang 3",
+    "Trang 4",
+    "Trang 5",
+    "Trang 6",
+    "Trang 7",
+    "Trang 8",
+    "Trang 9",
+    "Trang 10",
+    "Trang 11",
+    "Trang 12",
+    "Trang 13",
+    "Trang 14",
+    "Trang 15",
+    "Trang 16",
+    "Trang 17",
+    "Trang 18",
+    "Trang 19",
+    "Trang 20",
+    "Trang 21",
+    "Trang 22",
+    "Trang 23",
+    "Trang 24",
+    "Trang 25",
+    "Trang 26",
+    "Trang 27",
+    "Trang 28",
+    "Trang 29"
+  ],
+  "model": "openai/gpt-4o-mini",
+  "path": "happy",
+  "status": "ok",
+  "reason": "",
+  "n_questions": 6,
+  "pass_rate": 1.0,
+  "context_chars": 16945,
+  "usage": {
+    "prompt_tokens": 6586,
+    "completion_tokens": 737,
+    "total_tokens": 7323,
+    "cost": 0.0014301,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.0014301,
+      "upstream_inference_prompt_cost": 0.0009879,
+      "upstream_inference_completions_cost": 0.0004422
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "note": "tập trung vào lịch sử AI",
+  "questions": [
+    {
+      "question": "Sự ra đời của hệ chuyên gia (expert system) trong lịch sử AI diễn ra vào năm nào?",
+      "options": [
+        "1980",
+        "2009",
+        "2017",
+        "2022"
+      ],
+      "answer_index": 0,
+      "explanation": "Sự ra đời của expert systems vào năm 1980 đánh dấu một bước chuyển trong chiến lược phát triển AI.",
+      "citation_ref": "Trang 6",
+      "evidence_quote": "1980: Hệ chuyên gia (expert system)",
+      "verification": {
+        "citation_in_scope": true,
+        "evidence_match": "exact",
+        "overlap": 1.0,
+        "options_valid": true,
+        "notes": []
+      }
+    },
+    {
+      "question": "Cuộc cách mạng dữ liệu ImageNet do ai khởi xướng và vào năm nào?",
+      "options": [
+        "2009",
+        "2012",
+        "2017",
+        "2022"
+      ],
+      "answer_index": 0,
+      "explanation": "Fei-Fei Li đã khởi xướng ImageNet vào năm 2009, tạo ra một bộ dữ liệu lớn có ảnh hưởng lớn đến AI.",
+      "citation_ref": "Trang 7",
+      "evidence_quote": "2009: Fei-Fei Li và ImageNet — cuộc cách mạng của dữ liệu",
+      "verification": {
+        "citation_in_scope": true,
+        "evidence_match": "exact",
+        "overlap": 1.0,
+        "options_valid": true,
+        "notes": []
+      }
+    },
+    {
+      "question": "Mô hình Transformer, một bước ngoặt trong AI, được giới thiệu vào năm nào?",
+      "options": [
+        "2009",
+        "2012",
+        "2017",
+        "2022"
+      ],
+      "answer_index": 2,
+      "explanation": "Mô hình Transformer được giới thiệu vào năm 2017, cho phép mô hình hiểu ngôn ngữ linh hoạt hơn.",
+      "citation_ref": "Trang 8",
+      "evidence_quote": "2017: Transformer",
+      "verification": {
+        "citation_in_scope": true,
+        "evidence_match": "exact",
+        "overlap": 1.0,
+        "options_valid": true,
+        "notes": []
+      }
+    },
+    {
+      "question": "ChatGPT, một mô hình ngôn ngữ mạnh mẽ, xuất hiện vào năm nào?",
+      "options": [
+        "2009",
+        "2017",
+        "2020",
+        "2022"
+      ],
+      "answer_index": 3,
+      "explanation": "ChatGPT xuất hiện vào năm 2022, mang lại trải nghiệm mới cho người dùng trong việc tương tác với mô hình ngôn ngữ.",
+      "citation_ref": "Trang 9",
+      "evidence_quote": "2022: ChatGPT",
+      "verification": {
+        "citation_in_scope": true,
+        "evidence_match": "exact",
+        "overlap": 1.0,
+        "options_valid": true,
+        "notes": []
+      }
+    },
+    {
+      "question": "Lịch sử AI đã trải qua bao nhiêu năm tính đến thời điểm hiện tại?",
+      "options": [
+        "50 năm",
+        "60 năm",
+        "70 năm",
+        "80 năm"
+      ],
+      "answer_index": 2,
+      "explanation": "Lịch sử AI đã kéo dài 70 năm, từ những ngày đầu khai sinh cho đến nay.",
+      "citation_ref": "Trang 5",
+      "evidence_quote": "Lịch sử AI 70 năm",
+      "verification": {
+        "citation_in_scope": true,
+        "evidence_match": "exact",
+        "overlap": 1.0,
+        "options_valid": true,
+        "notes": []
+      }
+    },
+    {
+      "question": "Sự chuyển mình từ các mô hình đơn lẻ sang hệ thống hành động như agent diễn ra trong giai đoạn nào?",
+      "options": [
+        "1980",
+        "2000",
+        "2010",
+        "2020"
+      ],
+      "answer_index": 1,
+      "explanation": "Sự chuyển mình này diễn ra vào khoảng năm 2000, khi AI bắt đầu phát triển theo hướng hệ thống có khả năng hành động.",
+      "citation_ref": "Trang 5",
+      "evidence_quote": "Từ model đơn lẻ sang system có khả năng hành động như agent",
+      "verification": {
+        "citation_in_scope": true,
+        "evidence_match": "exact",
+        "overlap": 1.0,
+        "options_valid": true,
+        "notes": []
+      }
+    }
+  ]
+}

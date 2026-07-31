@@ -1,0 +1,188 @@
+{
+  "run_at_utc": "20260731T032544Z",
+  "document": "d1-slide-hackathon",
+  "refs": [
+    "Trang 1",
+    "Trang 2",
+    "Trang 3",
+    "Trang 4",
+    "Trang 5",
+    "Trang 6",
+    "Trang 7",
+    "Trang 8",
+    "Trang 9",
+    "Trang 10",
+    "Trang 11",
+    "Trang 12",
+    "Trang 13",
+    "Trang 14",
+    "Trang 15",
+    "Trang 16",
+    "Trang 17",
+    "Trang 18",
+    "Trang 19",
+    "Trang 20",
+    "Trang 21",
+    "Trang 22",
+    "Trang 23",
+    "Trang 24",
+    "Trang 25",
+    "Trang 26",
+    "Trang 27",
+    "Trang 28",
+    "Trang 29"
+  ],
+  "model": "openai/gpt-4o-mini",
+  "path": "happy",
+  "status": "ok",
+  "reason": "",
+  "n_questions": 6,
+  "pass_rate": 1.0,
+  "context_chars": 16945,
+  "usage": {
+    "prompt_tokens": 6549,
+    "completion_tokens": 797,
+    "total_tokens": 7346,
+    "cost": 0.00146055,
+    "is_byok": false,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "cache_write_tokens": 0,
+      "audio_tokens": 0,
+      "video_tokens": 0
+    },
+    "cost_details": {
+      "upstream_inference_cost": 0.00146055,
+      "upstream_inference_prompt_cost": 0.00098235,
+      "upstream_inference_completions_cost": 0.0004782
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 0,
+      "image_tokens": 0,
+      "audio_tokens": 0
+    }
+  },
+  "note": "",
+  "questions": [
+    {
+      "question": "AI được định nghĩa là gì?",
+      "options": [
+        "Một hệ thống có yếu tố thông minh.",
+        "Một loại robot tự động.",
+        "Một phần mềm xử lý dữ liệu.",
+        "Một thuật toán học máy."
+      ],
+      "answer_index": 0,
+      "explanation": "AI được định nghĩa là một hệ thống có yếu tố “thông minhˮ.",
+      "citation_ref": "Trang 3",
+      "evidence_quote": "AI — chiếc ô lớn nhất: mọi hệ thống có yếu tố “thông minhˮ.",
+      "verification": {
+        "citation_in_scope": true,
+        "evidence_match": "exact",
+        "overlap": 1.0,
+        "options_valid": true,
+        "notes": []
+      }
+    },
+    {
+      "question": "Deep Learning là gì?",
+      "options": [
+        "Học từ dữ liệu thay vì viết luật tay.",
+        "Mạng nơ-ron nhiều tầng tự học đặc trưng.",
+        "Sinh nội dung mới như văn bản và ảnh.",
+        "Mô hình ngôn ngữ lớn."
+      ],
+      "answer_index": 1,
+      "explanation": "Deep Learning là mạng nơ-ron nhiều tầng tự học đặc trưng.",
+      "citation_ref": "Trang 3",
+      "evidence_quote": "Deep learning — mạng nơ-ron nhiều tầng tự học đặc trưng.",
+      "verification": {
+        "citation_in_scope": true,
+        "evidence_match": "exact",
+        "overlap": 1.0,
+        "options_valid": true,
+        "notes": []
+      }
+    },
+    {
+      "question": "Generative AI có chức năng gì?",
+      "options": [
+        "Phân loại dữ liệu.",
+        "Sinh nội dung mới.",
+        "Dự đoán kết quả.",
+        "Nhận diện hình ảnh."
+      ],
+      "answer_index": 1,
+      "explanation": "Generative AI có chức năng sinh ra thứ mới như văn bản, ảnh, code.",
+      "citation_ref": "Trang 4",
+      "evidence_quote": "Generative AI — sinh ra thứ mới: văn bản, ảnh, code.",
+      "verification": {
+        "citation_in_scope": true,
+        "evidence_match": "exact",
+        "overlap": 1.0,
+        "options_valid": true,
+        "notes": []
+      }
+    },
+    {
+      "question": "LLM là gì?",
+      "options": [
+        "Một loại robot.",
+        "Mô hình ngôn ngữ lớn.",
+        "Một thuật toán học máy.",
+        "Một phần mềm phân tích dữ liệu."
+      ],
+      "answer_index": 1,
+      "explanation": "LLM (Large Language Model) là một mô hình ngôn ngữ rất lớn.",
+      "citation_ref": "Trang 10",
+      "evidence_quote": "LLM (Large Language Model) là một mô hình ngôn ngữ rất lớn.",
+      "verification": {
+        "citation_in_scope": true,
+        "evidence_match": "exact",
+        "overlap": 1.0,
+        "options_valid": true,
+        "notes": []
+      }
+    },
+    {
+      "question": "Attention trong mô hình AI có tác dụng gì?",
+      "options": [
+        "Giúp phân loại dữ liệu.",
+        "Cho phép mỗi token nhìn sang các token khác.",
+        "Tăng tốc độ xử lý dữ liệu.",
+        "Giảm chi phí tính toán."
+      ],
+      "answer_index": 1,
+      "explanation": "Attention cho phép mỗi token chủ động nhìn lại các token trước đó trong câu.",
+      "citation_ref": "Trang 15",
+      "evidence_quote": "Cơ chế attention cho phép mỗi token: Chủ động “quay đầuˮ nhìn lại các token trước đó trong câu.",
+      "verification": {
+        "citation_in_scope": true,
+        "evidence_match": "exact",
+        "overlap": 1.0,
+        "options_valid": true,
+        "notes": []
+      }
+    },
+    {
+      "question": "Chain-of-Thought là gì trong AI?",
+      "options": [
+        "Một loại mô hình AI.",
+        "Một phương pháp suy luận.",
+        "Một thuật toán phân loại.",
+        "Một cách sinh nội dung."
+      ],
+      "answer_index": 1,
+      "explanation": "Chain-of-Thought là phương pháp giúp model suy luận từng bước để đạt được kết quả đúng.",
+      "citation_ref": "Trang 22",
+      "evidence_quote": "Chain-of-Thought: chỉ thêm 'giấy nháp', từ sai thành đúng.",
+      "verification": {
+        "citation_in_scope": true,
+        "evidence_match": "exact",
+        "overlap": 1.0,
+        "options_valid": true,
+        "notes": []
+      }
+    }
+  ]
+}

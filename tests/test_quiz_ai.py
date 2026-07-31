@@ -39,6 +39,19 @@ class QuizResponseTests(unittest.TestCase):
         self.assertEqual("ok", result["status"])
         self.assertEqual(["[Slide trang 3]"], result["citations"])
 
+    def test_accepts_basic_chat_without_a_slide_citation(self):
+        payload = json.dumps(
+            {
+                "status": "general",
+                "answer": "Chào bạn! Mình có thể hỗ trợ bạn ôn nội dung trong slide.",
+                "citations": [],
+            }
+        )
+
+        result = parse_chat_response(payload, allowed_pages={3})
+
+        self.assertEqual("general", result["status"])
+
     def test_chat_rejects_citation_outside_context(self):
         payload = json.dumps(
             {
