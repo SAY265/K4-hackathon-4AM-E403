@@ -1,6 +1,12 @@
 .DS_Store
 node_modules/
 *.env
+*.env.*
+!.env.example
 .idea/
+.streamlit/secrets.toml
+__pycache__/
+*.py[cod]
+.tmp/
 
 implementation_plan.md

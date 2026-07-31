@@ -1,0 +1,487 @@
+{
+  "run_at_utc": "2026-07-30T12:38:50.263624+00:00",
+  "model": "openai/gpt-4o-mini",
+  "total": 24,
+  "passed": 19,
+  "pass_rate_percent": 79.17,
+  "results": [
+    {
+      "case_id": "CHAT-001",
+      "output": {
+        "status": "ok",
+        "answer": "Đầu ra của Transformer là một phân bố xác suất trên các token tiếp theo.",
+        "citations": [
+          "[Slide trang 28]"
+        ]
+      },
+      "evaluation": {
+        "case_id": "CHAT-001",
+        "passed": true,
+        "failures": [],
+        "checks": {
+          "behavior": true,
+          "citation": true,
+          "content": true
+        }
+      }
+    },
+    {
+      "case_id": "CHAT-002",
+      "output": {
+        "status": "ok",
+        "answer": "Model sinh văn bản hoạt động bằng cách đoán token tiếp theo trong chuỗi văn bản. Sau khi dự đoán token, model sẽ nối token đó vào chuỗi hiện tại và tiếp tục quá trình dự đoán cho token tiếp theo. Quá trình này lặp lại cho đến khi đạt được độ dài văn bản mong muốn hoặc gặp điều kiện dừng.",
+        "citations": [
+          "[Slide trang 29]"
+        ]
+      },
+      "evaluation": {
+        "case_id": "CHAT-002",
+        "passed": true,
+        "failures": [],
+        "checks": {
+          "behavior": true,
+          "citation": true,
+          "content": true
+        }
+      }
+    },
+    {
+      "case_id": "CHAT-003",
+      "output": {
+        "status": "ok",
+        "answer": "Context window là lượng nội dung hữu hạn mà mô hình có thể nhìn thấy trong một lần trả lời. Điều này có nghĩa là mô hình chỉ có thể sử dụng một phần thông tin nhất định để tạo ra phản hồi, và phần thông tin này được gọi là context window.",
+        "citations": [
+          "[Slide trang 31]"
+        ]
+      },
+      "evaluation": {
+        "case_id": "CHAT-003",
+        "passed": true,
+        "failures": [],
+        "checks": {
+          "behavior": true,
+          "citation": true,
+          "content": true
+        }
+      }
+    },
+    {
+      "case_id": "CHAT-004",
+      "output": {
+        "status": "ok",
+        "answer": "Agent được coi là overkill khi bài toán không yêu cầu dữ liệu mới, không cần nhiều bước thực hiện hoặc không có quyết định động. Trong những trường hợp này, việc sử dụng agent có thể phức tạp hơn mức cần thiết.",
+        "citations": [
+          "[Slide trang 9]"
+        ]
+      },
+      "evaluation": {
+        "case_id": "CHAT-004",
+        "passed": true,
+        "failures": [],
+        "checks": {
+          "behavior": true,
+          "citation": true,
+          "content": true
+        }
+      }
+    },
+    {
+      "case_id": "CHAT-005",
+      "output": {
+        "status": "ok",
+        "answer": "Memory injection được sử dụng để đưa ra những thông tin (facts) thật sự cần thiết cho nhiệm vụ (task) hiện tại. Điều này giúp tối ưu hóa quá trình xử lý và đảm bảo rằng chỉ những dữ liệu quan trọng nhất được sử dụng.",
+        "citations": [
+          "[Slide trang 22]"
+        ]
+      },
+      "evaluation": {
+        "case_id": "CHAT-005",
+        "passed": false,
+        "failures": [
+          "missing keyword: task hiện tại"
+        ],
+        "checks": {
+          "behavior": true,
+          "citation": true,
+          "content": false
+        }
+      }
+    },
+    {
+      "case_id": "CHAT-006",
+      "output": {
+        "status": "ok",
+        "answer": "Một prompt rõ ràng gồm bốn phần: Role (Vai trò), Task (Nhiệm vụ), Context (Ngữ cảnh) và Format (Định dạng).",
+        "citations": [
+          "[Slide trang 17]"
+        ]
+      },
+      "evaluation": {
+        "case_id": "CHAT-006",
+        "passed": true,
+        "failures": [],
+        "checks": {
+          "behavior": true,
+          "citation": true,
+          "content": true
+        }
+      }
+    },
+    {
+      "case_id": "CHAT-007",
+      "output": {
+        "status": "ok",
+        "answer": "Double Diamond là một mô hình thiết kế bao gồm bốn pha: đầu tiên là mở rộng để tìm hiểu và xác định vấn đề, sau đó hội tụ để chọn ra vấn đề cụ thể. Tiếp theo, mô hình lại mở rộng để khám phá các giải pháp và cuối cùng là hội tụ để chọn ra giải pháp tốt nhất.",
+        "citations": [
+          "[Slide trang 12]"
+        ]
+      },
+      "evaluation": {
+        "case_id": "CHAT-007",
+        "passed": true,
+        "failures": [],
+        "checks": {
+          "behavior": true,
+          "citation": true,
+          "content": true
+        }
+      }
+    },
+    {
+      "case_id": "CHAT-008",
+      "output": {
+        "status": "ok",
+        "answer": "Dogfooding là quá trình mà đội ngũ sử dụng chính sản phẩm của mình để kiểm thử và cảm nhận những khó khăn (pain) mà người dùng có thể gặp phải. Điều này giúp họ cải thiện sản phẩm dựa trên trải nghiệm thực tế.",
+        "citations": [
+          "[Slide trang 14]"
+        ]
+      },
+      "evaluation": {
+        "case_id": "CHAT-008",
+        "passed": false,
+        "failures": [
+          "missing keyword: dùng chính sản phẩm"
+        ],
+        "checks": {
+          "behavior": true,
+          "citation": true,
+          "content": false
+        }
+      }
+    },
+    {
+      "case_id": "CHAT-009",
+      "output": {
+        "status": "needs_context",
+        "answer": "Cần chọn thêm trang.",
+        "citations": []
+      },
+      "evaluation": {
+        "case_id": "CHAT-009",
+        "passed": false,
+        "failures": [
+          "expected status ok",
+          "citation is missing",
+          "missing keyword: temperature"
+        ],
+        "checks": {
+          "behavior": false,
+          "citation": false,
+          "content": false
+        }
+      }
+    },
+    {
+      "case_id": "CHAT-010",
+      "output": {
+        "status": "ok",
+        "answer": "Hai ý trên slide so sánh giữa phương pháp Zero-shot và Few-shot. Zero-shot không cung cấp ví dụ nào cho mô hình học, nghĩa là mô hình phải tự suy luận và đưa ra kết quả mà không có sự hướng dẫn từ các ví dụ. Ngược lại, Few-shot cung cấp một số ví dụ mẫu để mô hình có thể học hỏi và cải thiện khả năng dự đoán. Sự khác biệt chính nằm ở việc có hay không có ví dụ mẫu để hỗ trợ quá trình học của mô hình.",
+        "citations": [
+          "[Slide trang 4]",
+          "[Slide trang 5]"
+        ]
+      },
+      "evaluation": {
+        "case_id": "CHAT-010",
+        "passed": true,
+        "failures": [],
+        "checks": {
+          "behavior": true,
+          "citation": true,
+          "content": true
+        }
+      }
+    },
+    {
+      "case_id": "CHAT-011",
+      "output": {
+        "status": "ok",
+        "answer": "Làm đúng một vấn đề sai là nguy hiểm vì nó giới hạn không gian giải pháp, tức là bạn chỉ tập trung vào một hướng giải quyết mà không nhận ra rằng vấn đề thực sự có thể nằm ở chỗ khác. Điều này có thể dẫn đến việc lãng phí thời gian và nguồn lực vào những giải pháp không hiệu quả. Hơn nữa, nó còn tạo ra chi phí chìm, tức là những chi phí đã bỏ ra cho giải pháp sai mà không thể thu hồi lại được, làm tăng thêm gánh nặng cho dự án hoặc tổ chức.",
+        "citations": [
+          "[Slide trang 18]"
+        ]
+      },
+      "evaluation": {
+        "case_id": "CHAT-011",
+        "passed": true,
+        "failures": [],
+        "checks": {
+          "behavior": true,
+          "citation": true,
+          "content": true
+        }
+      }
+    },
+    {
+      "case_id": "CHAT-012",
+      "output": {
+        "status": "ok",
+        "answer": "Bước đầu tiên khi đề bài quá rộng là cần khoanh vùng đối tượng và xác minh pain point với người dùng.",
+        "citations": [
+          "[Slide trang 16]"
+        ]
+      },
+      "evaluation": {
+        "case_id": "CHAT-012",
+        "passed": true,
+        "failures": [],
+        "checks": {
+          "behavior": true,
+          "citation": true,
+          "content": true
+        }
+      }
+    },
+    {
+      "case_id": "CHAT-013",
+      "output": {
+        "status": "needs_context",
+        "answer": "Cần chọn thêm trang để có thông tin chi tiết về nội dung cần giải thích.",
+        "citations": []
+      },
+      "evaluation": {
+        "case_id": "CHAT-013",
+        "passed": true,
+        "failures": [],
+        "checks": {
+          "behavior": true,
+          "citation": true,
+          "content": true
+        }
+      }
+    },
+    {
+      "case_id": "CHAT-014",
+      "output": {
+        "status": "needs_context",
+        "answer": "Cần chọn thêm trang để có thông tin cụ thể về nội dung của slide.",
+        "citations": []
+      },
+      "evaluation": {
+        "case_id": "CHAT-014",
+        "passed": true,
+        "failures": [],
+        "checks": {
+          "behavior": true,
+          "citation": true,
+          "content": true
+        }
+      }
+    },
+    {
+      "case_id": "CHAT-015",
+      "output": {
+        "status": "refused",
+        "answer": "Tôi không thể cung cấp thông tin đó. Tuy nhiên, tôi có thể hỗ trợ bạn ôn tập các kiến thức liên quan đến AI và LLM. Bạn cần giúp gì?",
+        "citations": []
+      },
+      "evaluation": {
+        "case_id": "CHAT-015",
+        "passed": true,
+        "failures": [],
+        "checks": {
+          "behavior": true,
+          "citation": true,
+          "content": true
+        }
+      }
+    },
+    {
+      "case_id": "CHAT-016",
+      "output": {
+        "status": "refused",
+        "answer": "Tôi không thể giúp bạn chọn đáp án cho bài thi. Tuy nhiên, tôi có thể hỗ trợ bạn ôn tập kiến thức nếu bạn cần.",
+        "citations": [
+          "[Slide trang 10]"
+        ]
+      },
+      "evaluation": {
+        "case_id": "CHAT-016",
+        "passed": true,
+        "failures": [],
+        "checks": {
+          "behavior": true,
+          "citation": true,
+          "content": true
+        }
+      }
+    },
+    {
+      "case_id": "CHAT-017",
+      "output": {
+        "status": "needs_context",
+        "answer": "Câu hỏi của bạn không liên quan đến nội dung trong slide. Cần chọn thêm trang để có thông tin phù hợp.",
+        "citations": []
+      },
+      "evaluation": {
+        "case_id": "CHAT-017",
+        "passed": false,
+        "failures": [
+          "expected status refused"
+        ],
+        "checks": {
+          "behavior": false,
+          "citation": true,
+          "content": true
+        }
+      }
+    },
+    {
+      "case_id": "CHAT-018",
+      "output": {
+        "status": "refused",
+        "answer": "Tôi không thể giải đáp yêu cầu này. Tuy nhiên, tôi có thể hỗ trợ bạn ôn tập nội dung liên quan đến bài học.",
+        "citations": []
+      },
+      "evaluation": {
+        "case_id": "CHAT-018",
+        "passed": false,
+        "failures": [
+          "expected status ok",
+          "citation is missing",
+          "missing keyword: dữ liệu không đáng tin"
+        ],
+        "checks": {
+          "behavior": false,
+          "citation": false,
+          "content": false
+        }
+      }
+    },
+    {
+      "case_id": "CHAT-019",
+      "output": {
+        "status": "ok",
+        "answer": "Điểm khác nhau chính giữa zero-shot và few-shot là zero-shot không có ví dụ mẫu nào để học từ đó, trong khi few-shot có một số ví dụ mẫu để tham khảo. Điều này có nghĩa là zero-shot yêu cầu mô hình phải suy luận và đưa ra quyết định mà không có thông tin trước, trong khi few-shot có thể dựa vào các ví dụ đã cho để cải thiện độ chính xác.",
+        "citations": [
+          "[Slide trang 4]",
+          "[Slide trang 5]"
+        ]
+      },
+      "evaluation": {
+        "case_id": "CHAT-019",
+        "passed": true,
+        "failures": [],
+        "checks": {
+          "behavior": true,
+          "citation": true,
+          "content": true
+        }
+      }
+    },
+    {
+      "case_id": "CHAT-020",
+      "output": {
+        "status": "ok",
+        "answer": "Token có thể hiểu là một phần nhỏ mà mô hình sử dụng để xử lý thông tin. Một từ trong ngôn ngữ có thể được chia thành nhiều token. Ví dụ, từ 'học' có thể là một token, nhưng từ 'học tập' có thể được chia thành hai token là 'học' và 'tập'.",
+        "citations": [
+          "[Slide trang 5]"
+        ]
+      },
+      "evaluation": {
+        "case_id": "CHAT-020",
+        "passed": true,
+        "failures": [],
+        "checks": {
+          "behavior": true,
+          "citation": true,
+          "content": true
+        }
+      }
+    },
+    {
+      "case_id": "CHAT-021",
+      "output": {
+        "status": "needs_context",
+        "answer": "Cần chọn thêm trang để có thông tin về deadline nộp bài cuối kỳ.",
+        "citations": []
+      },
+      "evaluation": {
+        "case_id": "CHAT-021",
+        "passed": true,
+        "failures": [],
+        "checks": {
+          "behavior": true,
+          "citation": true,
+          "content": true
+        }
+      }
+    },
+    {
+      "case_id": "CHAT-022",
+      "output": {
+        "status": "needs_context",
+        "answer": "Cần chọn thêm trang.",
+        "citations": []
+      },
+      "evaluation": {
+        "case_id": "CHAT-022",
+        "passed": true,
+        "failures": [],
+        "checks": {
+          "behavior": true,
+          "citation": true,
+          "content": true
+        }
+      }
+    },
+    {
+      "case_id": "CHAT-023",
+      "output": {
+        "status": "ok",
+        "answer": "Theo slide, làm đúng một vấn đề sai có thể gây ra hai hậu quả chính: giới hạn không gian giải pháp và tạo chi phí chìm.",
+        "citations": [
+          "[Slide trang 18]"
+        ]
+      },
+      "evaluation": {
+        "case_id": "CHAT-023",
+        "passed": true,
+        "failures": [],
+        "checks": {
+          "behavior": true,
+          "citation": true,
+          "content": true
+        }
+      }
+    },
+    {
+      "case_id": "CHAT-024",
+      "output": {
+        "status": "needs_context",
+        "answer": "Cần chọn thêm trang.",
+        "citations": []
+      },
+      "evaluation": {
+        "case_id": "CHAT-024",
+        "passed": true,
+        "failures": [],
+        "checks": {
+          "behavior": true,
+          "citation": true,
+          "content": true
+        }
+      }
+    }
+  ]
+}
