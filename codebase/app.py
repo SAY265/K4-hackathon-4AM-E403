@@ -49,6 +49,7 @@ CSS = """
   --text-2:#4b5266;
   --muted:#8c93a6;
   --line:#e9ebf4;
+  --line-strong:#cdd3e4;
 
   --primary:#5457e5;
   --primary-600:#4447cd;
@@ -172,27 +173,38 @@ div[data-testid="stVerticalBlockBorderWrapper"]:has(.card-kicker) {
 .card-title { font-family:var(--display); font-weight:700; font-size:16.5px; line-height:1.45;
   color:var(--text); margin-bottom:14px; }
 
-/* phương án chưa chọn: nút chiếm cả dòng */
+/* phương án chưa chọn: nút chiếm cả dòng, chữ căn trái như hàng đã khoá */
 div[class*="st-key-opt_"] button {
-  width:100%; justify-content:flex-start; text-align:left; font-weight:500!important;
-  background:var(--surface-2); border:1px solid transparent; border-radius:var(--r-md);
-  padding:13px 16px; box-shadow:none; white-space:normal; line-height:1.45; }
+  width:100%!important; justify-content:flex-start!important; text-align:left!important;
+  font-weight:500!important; color:var(--text)!important;
+  background:var(--surface)!important; border:1.5px solid var(--line-strong)!important;
+  border-radius:var(--r-md); padding:13px 16px!important;
+  height:auto!important; min-height:0!important; box-shadow:none;
+  white-space:normal!important; line-height:1.5; }
+/* Nhãn nút bị Streamlit bọc trong một flex container tự căn giữa — ép về bên trái. */
+div[class*="st-key-opt_"] button > div,
+div[class*="st-key-opt_"] button div[data-testid="stMarkdownContainer"] {
+  width:100%!important; display:block!important;
+  justify-content:flex-start!important; text-align:left!important; }
+div[class*="st-key-opt_"] button p {
+  width:100%!important; margin:0!important; text-align:left!important;
+  white-space:normal!important; overflow-wrap:anywhere; }
 div[class*="st-key-opt_"] button:hover {
-  background:var(--surface); border-color:var(--primary); color:var(--text);
-  box-shadow:var(--sh-xs); transform:none; }
+  background:var(--primary-tint)!important; border-color:var(--primary)!important;
+  color:var(--text)!important; box-shadow:var(--sh-xs); transform:none; }
 
 /* phương án đã khoá */
 .option-row { display:flex; align-items:center; gap:12px; padding:13px 16px; margin-bottom:8px;
-  border:1px solid var(--line); border-radius:var(--r-md); background:var(--surface-2);
-  color:var(--text-2); font-size:14px; line-height:1.45; }
+  border:1.5px solid var(--line-strong); border-radius:var(--r-md); background:var(--surface);
+  color:var(--text-2); font-size:14px; line-height:1.5; }
 .option-row .letter { width:26px; height:26px; flex:none; border-radius:9px; display:grid; place-items:center;
-  font-size:12px; font-weight:700; background:var(--surface); color:var(--muted); box-shadow:var(--sh-xs); }
+  font-size:12px; font-weight:700; background:var(--surface-2); color:var(--text-2); }
 .option-row .mark { margin-left:auto; font-weight:700; font-size:15px; }
 .option-row.correct { background:var(--success-tint); border-color:var(--success); color:var(--success); }
 .option-row.correct .letter { background:var(--success); color:#fff; }
 .option-row.wrong { background:var(--danger-tint); border-color:var(--danger); color:var(--danger); }
 .option-row.wrong .letter { background:var(--danger); color:#fff; }
-.option-row.muted { opacity:.6; }
+.option-row.muted { opacity:.7; background:var(--surface-2); }
 
 .verdict { display:inline-flex; align-items:center; font-size:13px; font-weight:700;
   border-radius:var(--r-full); padding:5px 13px; margin:6px 0 10px; }
@@ -670,6 +682,7 @@ def render_chat_page() -> None:
             response = {"content": result["answer"], "citations": result["citations"]}
         except (RuntimeError, ValueError) as error:
             response = {"content": f"Không thể trả lời lúc này: {error}", "citations": []}
+
     history.append({"role": "assistant", **response})
     st.session_state["chat"] = history
     st.rerun()
