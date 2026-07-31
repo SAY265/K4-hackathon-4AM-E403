@@ -241,11 +241,12 @@ def parse_quiz_response(
 
     for question in questions:
         _validate_question(question, allowed_pages)
-    _validate_question_type_counts(
-        questions,
-        expected_multiple_choice_count,
-        expected_essay_count,
-    )
+    if status == "ok":
+        _validate_question_type_counts(
+            questions,
+            expected_multiple_choice_count,
+            expected_essay_count,
+        )
     return payload
 
 

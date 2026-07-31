@@ -51,6 +51,7 @@ def _run_case(client: OpenRouterClient, case: dict[str, Any]) -> dict[str, Any]:
         return {
             "case_id": case["id"],
             "output": None,
+            "error": str(error),
             "evaluation": {
                 "case_id": case["id"],
                 "passed": False,
