@@ -5,6 +5,7 @@ import unittest
 from codebase.quiz_ai import (
     ChatRequest,
     QuizRequest,
+    SYSTEM_PROMPT,
     parse_chat_response,
     parse_quiz_response,
 )
@@ -12,6 +13,11 @@ from codebase.extract_slides import extract_pages_from_bytes, format_page
 
 
 class QuizResponseTests(unittest.TestCase):
+    def test_system_prompt_hides_correct_answer_patterns(self):
+        self.assertIn("randomize the correct-answer position", SYSTEM_PROMPT)
+        self.assertIn("vary option lengths naturally", SYSTEM_PROMPT)
+        self.assertIn("must not reveal the correct answer", SYSTEM_PROMPT)
+
     def test_accepts_grounded_chat_response(self):
         payload = json.dumps(
             {

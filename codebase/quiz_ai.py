@@ -25,6 +25,12 @@ QUY TẮC BẮT BUỘC
 1. Không dùng kiến thức bên ngoài context và không suy đoán phần bị thiếu.
 2. Tạo đúng số câu theo từng loại trong yêu cầu:
    - multiple_choice: đúng 4 lựa chọn, một đáp án A/B/C/D.
+   - randomize the correct-answer position across A/B/C/D; không dùng một vị trí cố định
+     hoặc tạo quy luật dễ đoán giữa các câu.
+   - vary option lengths naturally; độ dài các lựa chọn phải đa dạng tự nhiên nhưng đáp án
+     đúng không được luôn dài nhất, ngắn nhất hoặc chi tiết vượt trội.
+   - wording and formatting must not reveal the correct answer; các phương án nhiễu phải
+     hợp lý, cùng phong cách và mức độ cụ thể với đáp án đúng.
    - essay: không có options/correct_answer; phải có sample_answer dựa trên slide.
 3. slide_reference phải đúng dạng [Slide trang N] và N phải xuất hiện trong context.
 4. Nếu context thiếu/không đọc được để tạo quiz: status="needs_context", nêu ngắn gọn
