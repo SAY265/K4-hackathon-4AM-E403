@@ -18,6 +18,13 @@ class QuizResponseTests(unittest.TestCase):
         self.assertIn("vary option lengths naturally", SYSTEM_PROMPT)
         self.assertIn("must not reveal the correct answer", SYSTEM_PROMPT)
 
+    def test_system_prompt_defines_three_cognitive_levels(self):
+        self.assertIn("Khái niệm", SYSTEM_PROMPT)
+        self.assertIn("Vận dụng", SYSTEM_PROMPT)
+        self.assertIn("Vận dụng cao", SYSTEM_PROMPT)
+        self.assertIn("tình huống mới", SYSTEM_PROMPT)
+        self.assertIn("nhiều bước", SYSTEM_PROMPT)
+
     def test_accepts_grounded_chat_response(self):
         payload = json.dumps(
             {
