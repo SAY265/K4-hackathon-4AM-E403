@@ -5,6 +5,12 @@ node_modules/
 __pycache__/
 *.pyc
 .venv/
+*.env.*
+!.env.example
 .idea/
+.streamlit/secrets.toml
+__pycache__/
+*.py[cod]
+.tmp/
 
 implementation_plan.md

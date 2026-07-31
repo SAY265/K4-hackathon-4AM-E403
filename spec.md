@@ -14,10 +14,10 @@ Loại: [ ] Tối ưu tính năng có sẵn  [X] Tính năng mới
 - Bảng impact ≥3 ứng viên:
 
 | Ứng viên | Bao nhiêu người gặp | Tần suất | Mỗi lần tốn gì | Khả thi (Build nổi) | Chọn? |
-|---|---|---|---|---|---|
-| 1. Tự sinh Quiz ôn tập từ Slide bài giảng | | Hàng ngày, sau mỗi buổi lý thuyết | 15-20 phút tự ôn nhẩm, hoặc 30-60 phút sửa bài thực hành LAB bị lỗi | Rất cao (Đã có sẵn data slide, luồng Streamlit và gọi LLM đơn giản) | Chọn |
-| 2. Hỏi đáp và tóm tắt video bài giảng dài | | 1-2 lần/tuần | Mất 1-2 tiếng tua và xem lại video bài giảng dài 2-3 tiếng | Thấp (Xử lý file video/audio lớn tốn API cost, latency cao, khó eval nhanh) | Loại |
-| 3. Bản đồ chẩn đoán lỗ hổng kiến thức lớp học | | 1 lần/tuần | TA mất 2-3 tiếng tổng hợp thủ công các câu hỏi của học sinh | Trung bình (Cần gom lượng dữ liệu lớn từ nhiều kênh học tập) | Loại |
+|---|:---:|---|---|---|---|
+| 1. Tự sinh Quiz ôn tập từ Slide bài giảng | 22 | Hàng ngày, sau mỗi buổi lý thuyết | 15-20 phút tự ôn nhẩm, hoặc 30-60 phút sửa bài thực hành LAB bị lỗi | Rất cao (Đã có sẵn data slide, luồng Streamlit và gọi LLM đơn giản) | Chọn |
+| 2. Hỏi đáp và tóm tắt video bài giảng dài | 14 | 1-2 lần/tuần | Mất 1-2 tiếng tua và xem lại video bài giảng dài 2-3 tiếng | Thấp (Xử lý file video/audio lớn tốn API cost, latency cao, khó eval nhanh) | Loại |
+| 3. Bản đồ chẩn đoán lỗ hổng kiến thức lớp học | 5 | 1 lần/tuần | TA mất 2-3 tiếng tổng hợp thủ công các câu hỏi của học sinh | Trung bình (Cần gom lượng dữ liệu lớn từ nhiều kênh học tập) | Loại |
 
 - Ứng viên ĐÃ LOẠI + vì sao:
   * Ứng viên 2 (Hỏi đáp video bài giảng): Loại vì tính khả thi thấp trong khung thời gian hackathon 1.5 ngày do xử lý dữ liệu đa phương tiện kích thước lớn tốn chi phí và độ trễ cao, khó xây dựng bộ eval chất lượng.
@@ -25,7 +25,7 @@ Loại: [ ] Tối ưu tính năng có sẵn  [X] Tính năng mới
 
 - Ứng viên CHỌN + vì sao (bằng số): 
   * Chọn Ứng viên 1 (Tự sinh Quiz ôn tập từ Slide bài giảng) vì có điểm khả thi kỹ thuật cao nhất (100% tài liệu slide đã được cấp sẵn dạng văn bản sạch trong data pack).
-  * Giải quyết trực tiếp pain point cho hơn 75% học viên (dựa trên dữ liệu khảo sát nhanh) ở tần suất cao (hàng ngày) ngay trước khi làm bài LAB chiều, giúp tiết kiệm trung bình 30-60 phút loay hoay sửa lỗi do hổng lý thuyết.
+  * Giải quyết trực tiếp pain point cho hơn 66,7% học viên được khảo sát, và 22,2% học viên được khảo sát sẵn sàng sử dụng nếu có giao diện gọn (dựa trên dữ liệu khảo sát nhanh) ở tần suất cao (hàng ngày) ngay trước khi làm bài LAB chiều, giúp tiết kiệm trung bình 30-60 phút loay hoay sửa lỗi do hổng lý thuyết.
 
 ## §3. Giải pháp tương tự đã nghiên cứu
 - NotebookLM (Google):
@@ -40,7 +40,7 @@ Loại: [ ] Tối ưu tính năng có sẵn  [X] Tính năng mới
   * Mình khác gì: Tích hợp sẵn trong hệ thống VLearn, đảm bảo các câu hỏi và giải thích bắt buộc phải đối chiếu khớp với slide của giảng viên và đi kèm trích dẫn số trang slide gốc.
 
 ## §4. Thiết kế
-- Lát cắt MỘT CÂU (1 user · 1 việc · 1 quyết định AI · 1 kết quả): Một học viên đã học xong bài giảng chọn tính năng và cấu hình bộ câu hỏi (số câu, độ khó,...) trên slide VLearn, AI tự động sinh các câu hỏi trắc nghiệm tự luyện kèm trích dẫn số trang slide gốc [Trang N], giúp học viên phát hiện lỗ hổng lý thuyết và ôn lại đúng trang slide trước khi làm bài LAB.
+- Lát cắt MỘT CÂU (1 user · 1 việc · 1 quyết định AI · 1 kết quả): Một học viên đã học xong bài giảng chọn tính năng và cấu hình bộ câu hỏi (số câu, độ khó,...) trong giao diện của công cụn, AI tự động sinh các câu hỏi tự luyện kèm trích dẫn số trang slide gốc [Trang N], giúp học viên phát hiện lỗ hổng lý thuyết và ôn lại đúng trang slide trước khi làm bài LAB.
 - Non-goals (≥3 thứ KHÔNG build):
   * Không tính điểm chính thức của học viên vào kết quả học tập của khóa học.
   * Không tạo ra câu hỏi từ các nguồn tài liệu nằm ngoài slide bài học được lựa chọn.
