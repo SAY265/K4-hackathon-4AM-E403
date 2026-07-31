@@ -120,9 +120,24 @@ Loại: [ ] Tối ưu tính năng có sẵn  [X] Tính năng mới
     - Deploy sản phẩm.
     - Đại diện thuyết trình & điều phối lượt Q&A 5 phút tại CP6.
 - Willing users (≥3 tên) + kế hoạch vòng validation CP5 (3 câu hỏi, ai log):
+  * Danh sách willing users:
+    - Tạ Đăng Đức (Mã SV: 2A202601772)
+    - Lương Bảo Long (Mã SV: 2A202601682)
+    - Lê Trung Kiên (Mã SV: 2A202601182)
+  * Kế hoạch vòng validation CP5:
+    - Người thực hiện ghi log: Vũ Quốc Anh.
+    - Quy trình thực hiện: Học viên chọn slide bất kỳ, cấu hình và trả lời bộ câu hỏi ôn tập, đối chiếu giải thích với slide nguồn.
+    - 3 câu hỏi phỏng vấn:
+      1. Điều gì làm bạn khó hiểu hoặc khó chịu nhất trong quá trình sử dụng?
+      2. Kết quả quiz và lời giải thích của AI bạn có tin tưởng không, vì sao?
+      3. Bạn có thực sự muốn sử dụng công cụ này hàng ngày sau buổi học không, vì sao?
 
 - Multi-prototype (nếu làm): trục khác biệt của ≥2 phương án + lý do chọn:
 
 ## §9. Changelog
 | Thời điểm | Đổi gì | Vì sao (trỏ về feedback/case nào) |
+|---|---|---|
+| Sau lượt chạy CP3 | Cập nhật system prompt của chatbot ôn tập, bổ sung quy tắc từ chối nghiêm ngặt các câu hỏi không liên quan đến bài học. | Khắc phục lỗi trả lời lan man khi bị học viên hỏi ngoài lề trong case GS-019. |
+| Sau lượt chạy CP3 | Tích hợp tính năng cảnh báo và từ chối các yêu cầu ngoài phạm vi như tải xuống tệp tin lớp học. | Giải quyết phản hồi trong case GS-020 khi học viên đòi tải tài liệu xuống. |
+| Sau lượt chạy CP5 | Thêm module hậu xử lý kiểm tra chéo (cross-check) để xác thực và bắt buộc số trang slide trong câu trả lời của AI phải nằm trong danh mục slide được chọn. | Sửa lỗi AI bị học viên đánh lừa dẫn đến trích dẫn sai số trang slide trong các case khó GS-013 và GS-014. |
 ```
